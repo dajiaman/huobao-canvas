@@ -212,6 +212,12 @@
       "type": "directory"
     },
     {
+      "path": "package.json",
+      "accessCount": 4,
+      "lastAccessed": 1785180982509,
+      "type": "file"
+    },
+    {
       "path": "vite.config.js",
       "accessCount": 3,
       "lastAccessed": 1785166183711,
@@ -239,12 +245,6 @@
       "path": "pnpm-workspace.yaml",
       "accessCount": 3,
       "lastAccessed": 1785168579111,
-      "type": "file"
-    },
-    {
-      "path": "package.json",
-      "accessCount": 3,
-      "lastAccessed": 1785169181631,
       "type": "file"
     },
     {
