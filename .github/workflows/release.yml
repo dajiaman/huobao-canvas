@@ -15,12 +15,12 @@ jobs:
 
     steps:
       - name: Check out Git repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: 24
           cache: 'npm'
 
       - name: Install Dependencies
@@ -35,12 +35,12 @@ jobs:
         run: ls -a dist/
 
       - name: delete noneed file
-        if: runner.os == 'Linux' || runner.os =='macOS'
+        if: runner.os == 'Linux' || runner.os == 'macOS'
         run: |
           rm -rf dist/builder-debug.yml
 
       - name: release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           draft: false
           prerelease: false
@@ -49,7 +49,7 @@ jobs:
             dist/*.dmg
             dist/*.AppImage
             dist/*.deb
-            dust/*.zip
+            dist/*.zip
             dist/*.rpm
             dist/*.yml
             dist/*.blockmap
