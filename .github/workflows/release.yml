@@ -27,8 +27,17 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: build electron app
-        run: npm run dist
+      - name: build electron app (Windows)
+        if: runner.os == 'Windows'
+        run: npm run build:win
+
+      - name: build electron app (macOS)
+        if: runner.os == 'macOS'
+        run: npm run build:mac
+
+      - name: build electron app (Linux)
+        if: runner.os == 'Linux'
+        run: npm run build:linux
 
       # list
       - name: list
