@@ -18,6 +18,8 @@
     shortcutName: '${productName}',
     uninstallDisplayName: '${productName}',
     createDesktopShortcut: 'always',
+    oneClick: false,
+    allowToChangeInstallationDirectory: true
   },
   win: {
     icon: 'build/icon.ico',

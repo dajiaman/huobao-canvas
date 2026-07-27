@@ -1,4 +1,4 @@
-const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./Home-_NoZIZyy.js","./AppHeader-G8U-5zEE.js","./AppHeader-a-97IKIb.css","./Canvas-BOhja7Ah.js","./Canvas-l8GXfQKB.css"])))=>i.map(i=>d[i]);
+const __vite__mapDeps=(i,m=__vite__mapDeps,d=(m.f||(m.f=["./Home-CpY69STq.js","./suggestion-C-jH-FmI.js","./suggestion-a-97IKIb.css","./Canvas-DM6-boii.js","./Canvas-CrJXb-DV.css"])))=>i.map(i=>d[i]);
 // @__NO_SIDE_EFFECTS__
 function makeMap(str) {
   const map = /* @__PURE__ */ Object.create(null);
@@ -23106,12 +23106,12 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: () => __vitePreload(() => import("./Home-_NoZIZyy.js"), true ? __vite__mapDeps([0,1,2]) : void 0, import.meta.url)
+    component: () => __vitePreload(() => import("./Home-CpY69STq.js"), true ? __vite__mapDeps([0,1,2]) : void 0, import.meta.url)
   },
   {
     path: "/canvas/:id?",
     name: "Canvas",
-    component: () => __vitePreload(() => import("./Canvas-BOhja7Ah.js"), true ? __vite__mapDeps([3,1,2,4]) : void 0, import.meta.url)
+    component: () => __vitePreload(() => import("./Canvas-DM6-boii.js"), true ? __vite__mapDeps([3,1,2,4]) : void 0, import.meta.url)
   }
 ];
 const router = createRouter({
@@ -23307,14 +23307,14 @@ export {
   withKeys as h,
   inject as i,
   withModifiers as j,
-  createTextVNode as k,
-  ref as l,
+  renderList as k,
+  createTextVNode as l,
   computed as m,
   useRouter as n,
   openBlock as o,
   normalizeClass as p,
   toDisplayString as q,
-  renderList as r,
+  ref as r,
   h as s,
   throwError as t,
   unref as u,

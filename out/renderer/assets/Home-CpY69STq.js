@@ -1,5 +1,5 @@
-import { t as throwError, i as inject, d as dialogApiInjectionKey, a as defineComponent, o as openBlock, c as createElementBlock, b as createBaseVNode, e as onMounted, f as createVNode, w as withCtx, g as withDirectives, v as vModelText, h as withKeys, j as withModifiers, u as unref, F as Fragment, r as renderList, k as createTextVNode, N as NModal, l as ref, m as computed, n as useRouter, p as normalizeClass, q as toDisplayString, B as Button, s as h } from "./index-QNl-QN-z.js";
-import { u as useModelStore, i as initProjectsStore, _ as _sfc_main$1, N as NIcon, p as projects, A as ApiSettings, c as createProject, S as SettingsOutline, a as SendOutline, R as RefreshOutline, b as AddOutline, d as NDropdown, e as NInput, r as renameProject, f as deleteProject, g as duplicateProject, C as CopyOutline, T as TrashOutline } from "./AppHeader-G8U-5zEE.js";
+import { t as throwError, i as inject, d as dialogApiInjectionKey, a as defineComponent, o as openBlock, c as createElementBlock, b as createBaseVNode, r as ref, e as onMounted, f as createVNode, w as withCtx, g as withDirectives, v as vModelText, h as withKeys, j as withModifiers, u as unref, F as Fragment, k as renderList, l as createTextVNode, N as NModal, m as computed, n as useRouter, p as normalizeClass, q as toDisplayString, B as Button, s as h } from "./index-C6XixcTv.js";
+import { u as useModelStore, g as getRandomSuggestion, i as initProjectsStore, _ as _sfc_main$1, N as NIcon, p as projects, A as ApiSettings, c as createProject, S as SettingsOutline, a as SendOutline, R as RefreshOutline, b as AddOutline, d as NDropdown, e as NInput, r as renameProject, f as deleteProject, h as duplicateProject, C as CopyOutline, T as TrashOutline } from "./suggestion-C-jH-FmI.js";
 function useDialog() {
   const dialog = inject(dialogApiInjectionKey, null);
   if (dialog === null) {
@@ -216,28 +216,27 @@ const _hoisted_7 = { class: "flex items-center justify-between mt-2" };
 const _hoisted_8 = { class: "flex items-center gap-3" };
 const _hoisted_9 = { class: "flex flex-wrap items-center justify-center gap-2 mt-4" };
 const _hoisted_10 = ["onClick"];
-const _hoisted_11 = { class: "p-1.5 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors" };
-const _hoisted_12 = { class: "flex items-center justify-between mb-4" };
-const _hoisted_13 = {
+const _hoisted_11 = { class: "flex items-center justify-between mb-4" };
+const _hoisted_12 = {
   key: 0,
   class: "text-center py-12 bg-[var(--bg-secondary)] rounded-xl border border-dashed border-[var(--border-color)]"
 };
-const _hoisted_14 = {
+const _hoisted_13 = {
   key: 1,
   class: "grid grid-cols-2 md:grid-cols-4 gap-4"
 };
-const _hoisted_15 = ["onClick"];
-const _hoisted_16 = ["onMouseenter", "onMouseleave"];
-const _hoisted_17 = ["src"];
-const _hoisted_18 = ["src", "alt"];
-const _hoisted_19 = {
+const _hoisted_14 = ["onClick"];
+const _hoisted_15 = ["onMouseenter", "onMouseleave"];
+const _hoisted_16 = ["src"];
+const _hoisted_17 = ["src", "alt"];
+const _hoisted_18 = {
   key: 1,
   class: "w-full h-full flex items-center justify-center"
 };
-const _hoisted_20 = { class: "text-sm text-[var(--text-primary)] truncate" };
-const _hoisted_21 = { class: "text-xs text-[var(--text-secondary)]" };
-const _hoisted_22 = { class: "absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity z-10" };
-const _hoisted_23 = { class: "fixed left-4 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-2 p-2 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-color)] shadow-sm" };
+const _hoisted_19 = { class: "text-sm text-[var(--text-primary)] truncate" };
+const _hoisted_20 = { class: "text-xs text-[var(--text-secondary)]" };
+const _hoisted_21 = { class: "absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity z-10" };
+const _hoisted_22 = { class: "fixed left-4 top-1/2 -translate-y-1/2 hidden md:flex flex-col gap-2 p-2 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-color)] shadow-sm" };
 const _sfc_main = {
   __name: "Home",
   setup(__props) {
@@ -272,12 +271,10 @@ const _sfc_main = {
     const showRenameModal = ref(false);
     const renameValue = ref("");
     const renameTargetId = ref(null);
-    const suggestions = [
-      "雨中魔法森林",
-      "日式街面美食摄影",
-      "瀑布水流飞溅",
-      "雨天富声旁边花语"
-    ];
+    const suggestions = ref(getRandomSuggestion());
+    const handleRefreshSuggestion = () => {
+      suggestions.value = getRandomSuggestion();
+    };
     const formatDate = (date) => {
       if (!date) return "";
       const d = new Date(date);
@@ -438,14 +435,17 @@ const _sfc_main = {
               ]),
               createBaseVNode("div", _hoisted_9, [
                 _cache[8] || (_cache[8] = createBaseVNode("span", { class: "text-sm text-[var(--text-secondary)]" }, "推荐：", -1)),
-                (openBlock(), createElementBlock(Fragment, null, renderList(suggestions, (tag) => {
-                  return createBaseVNode("button", {
+                (openBlock(true), createElementBlock(Fragment, null, renderList(suggestions.value, (tag) => {
+                  return openBlock(), createElementBlock("button", {
                     key: tag,
                     onClick: ($event) => inputText.value = tag,
                     class: "px-3 py-1.5 text-sm rounded-full bg-[var(--bg-secondary)] border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-colors"
                   }, toDisplayString(tag), 9, _hoisted_10);
-                }), 64)),
-                createBaseVNode("button", _hoisted_11, [
+                }), 128)),
+                createBaseVNode("button", {
+                  class: "p-1.5 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors",
+                  onClick: handleRefreshSuggestion
+                }, [
                   createVNode(unref(NIcon), { size: 16 }, {
                     default: withCtx(() => [
                       createVNode(unref(RefreshOutline))
@@ -460,7 +460,7 @@ const _sfc_main = {
             ref_key: "projectsSection",
             ref: projectsSection
           }, [
-            createBaseVNode("div", _hoisted_12, [
+            createBaseVNode("div", _hoisted_11, [
               _cache[11] || (_cache[11] = createBaseVNode("h2", { class: "text-lg font-semibold text-[var(--text-primary)]" }, "我的项目", -1)),
               createBaseVNode("button", {
                 onClick: createNewProject,
@@ -475,7 +475,7 @@ const _sfc_main = {
                 _cache[10] || (_cache[10] = createTextVNode(" 新建项目 ", -1))
               ])
             ]),
-            unref(projects).length === 0 ? (openBlock(), createElementBlock("div", _hoisted_13, [
+            unref(projects).length === 0 ? (openBlock(), createElementBlock("div", _hoisted_12, [
               createVNode(unref(NIcon), {
                 size: 48,
                 class: "text-[var(--text-secondary)] mb-4"
@@ -490,7 +490,7 @@ const _sfc_main = {
                 onClick: createNewProject,
                 class: "px-4 py-2 text-sm rounded-lg bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white transition-colors"
               }, " 创建第一个项目 ")
-            ])) : (openBlock(), createElementBlock("div", _hoisted_14, [
+            ])) : (openBlock(), createElementBlock("div", _hoisted_13, [
               (openBlock(true), createElementBlock(Fragment, null, renderList(unref(projects), (project) => {
                 return openBlock(), createElementBlock("div", {
                   key: project.id,
@@ -515,13 +515,13 @@ const _sfc_main = {
                           muted: "",
                           loop: "",
                           playsinline: ""
-                        }, null, 8, _hoisted_17)) : (openBlock(), createElementBlock("img", {
+                        }, null, 8, _hoisted_16)) : (openBlock(), createElementBlock("img", {
                           key: 1,
                           src: project.thumbnail,
                           alt: project.name,
                           class: "w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        }, null, 8, _hoisted_18))
-                      ], 64)) : (openBlock(), createElementBlock("div", _hoisted_19, [
+                        }, null, 8, _hoisted_17))
+                      ], 64)) : (openBlock(), createElementBlock("div", _hoisted_18, [
                         createVNode(unref(NIcon), {
                           size: 32,
                           class: "text-[var(--text-secondary)]"
@@ -535,11 +535,11 @@ const _sfc_main = {
                       _cache[13] || (_cache[13] = createBaseVNode("div", { class: "absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center" }, [
                         createBaseVNode("span", { class: "text-white text-sm" }, "打开项目")
                       ], -1))
-                    ], 40, _hoisted_16),
-                    createBaseVNode("p", _hoisted_20, toDisplayString(project.name), 1),
-                    createBaseVNode("p", _hoisted_21, toDisplayString(formatDate(project.updatedAt)), 1)
-                  ], 8, _hoisted_15),
-                  createBaseVNode("div", _hoisted_22, [
+                    ], 40, _hoisted_15),
+                    createBaseVNode("p", _hoisted_19, toDisplayString(project.name), 1),
+                    createBaseVNode("p", _hoisted_20, toDisplayString(formatDate(project.updatedAt)), 1)
+                  ], 8, _hoisted_14),
+                  createBaseVNode("div", _hoisted_21, [
                     createVNode(unref(NDropdown), {
                       options: getProjectActions(),
                       onSelect: (key) => handleProjectAction(key, project),
@@ -567,7 +567,7 @@ const _sfc_main = {
             ]))
           ], 512)
         ]),
-        createBaseVNode("aside", _hoisted_23, [
+        createBaseVNode("aside", _hoisted_22, [
           createBaseVNode("button", {
             onClick: createNewProject,
             class: "p-2 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors",

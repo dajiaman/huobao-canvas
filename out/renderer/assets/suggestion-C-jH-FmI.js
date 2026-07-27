@@ -1,4 +1,4 @@
-import { e as onMounted, Y as onBeforeUnmount, aL as isBrowser, X as watch, m as computed, aH as readonly, aA as reactive, a1 as on, aM as hasInstance, aw as onBeforeMount, Z as off, K as createInjectionKey, i as inject, aN as useMemo, l as ref, aO as modalBodyInjectionKey, aP as drawerBodyInjectionKey, aQ as popoverBodyInjectionKey, an as getCurrentInstance, a as defineComponent, aR as getSlot, aE as provide, g as withDirectives, aS as getFirstVNode, aT as CssRender, s as h, S as LazyTeleport, T as zindexable, $ as isMounted, aU as useSsrAdapter, ax as nextTick, a3 as toRef, aV as VResizeObserver, as as mergeProps, aW as onActivated, aX as onDeactivated, ah as depx, a9 as pxfy, am as renderSlot, aY as resizeObserverManager, aZ as isSymbol, a_ as isObject, a$ as getNative, b0 as root, b1 as overArg, b2 as isPrototype, b3 as isArrayLike, b4 as arrayLikeKeys, b5 as isArray, b6 as MapCache, x as toString, b7 as baseGetTag, b8 as toSource, b9 as Map$1, ba as Symbol$1, bb as eq, bc as Uint8Array, bd as isBuffer, be as Stack, bf as isTypedArray, bg as isObjectLike, bh as isLength, bi as isIndex, bj as isArguments, bk as identity, bl as baseFor, bm as arrayMap, bn as configProviderInjectionKey, y as replaceable, M as cB, L as c$1, ab as cE, ac as iconSwitchTransition, ag as NIconSwitchTransition, bo as resolveSlot, bp as useStyle, R as NBaseIcon, G as useConfig, H as useTheme, _ as useThemeClass, bq as emptyLight, aa as createKey, br as render, U as Transition, a4 as cM, Q as cNotM, P as fadeInScaleUpTransition, ae as resolveWrappedSlot, a5 as NBaseLoading, bs as Scrollbar, bt as useRtl, bu as internalSelectMenuLight, bv as getMargin, bw as cCB, a6 as watchEffect, ad as isSlotEmpty, bx as FocusTrap, F as Fragment, by as XScrollbar, A as popoverLight, bz as clickoutside, V as vShow, bA as getPreciseEventTarget, bB as getFirstSlotVNode, bC as cloneVNode, bD as Text, bE as keep, a0 as call, C as derived, bF as commonVariables, J as changeColor, bG as NBaseClose, bH as color2Class, bI as Wrapper, bJ as internalSelectionLight, bK as commonVars, E as composite, bL as fadeInHeightExpandTransition, bM as NFadeInExpandTransition, bN as ErrorIcon, bO as WarningIcon, bP as InfoIcon, bQ as SuccessIcon, z as createTheme, bR as scrollbarLight, bS as commonVariables$1, bT as resolveSlotWithTypedProps, bU as isSafari, af as useFormItem, bV as markEventEffectPerformed, bW as selectLight, bX as warn, bY as iconLight, bZ as dropdownLight, b_ as dividerLight, b$ as keysOf, c0 as formLight, c1 as commonVariables$2, c2 as createId, c3 as formItemInjectionKey, t as throwError, c4 as omit, c5 as flatten$1, c6 as TransitionGroup, c7 as tabsLight, o as openBlock, c as createElementBlock, b as createBaseVNode, ai as createStaticVNode, c8 as defineStore, au as createBlock, w as withCtx, f as createVNode, u as unref, k as createTextVNode, q as toDisplayString, h as withKeys, B as Button, r as renderList, N as NModal, c9 as toggleTheme, ca as isDark } from "./index-QNl-QN-z.js";
+import { e as onMounted, Y as onBeforeUnmount, aL as isBrowser, X as watch, m as computed, aH as readonly, aA as reactive, a1 as on, aM as hasInstance, aw as onBeforeMount, Z as off, K as createInjectionKey, i as inject, aN as useMemo, r as ref, aO as modalBodyInjectionKey, aP as drawerBodyInjectionKey, aQ as popoverBodyInjectionKey, an as getCurrentInstance, a as defineComponent, aR as getSlot, aE as provide, g as withDirectives, aS as getFirstVNode, aT as CssRender, s as h, S as LazyTeleport, T as zindexable, $ as isMounted, aU as useSsrAdapter, ax as nextTick, a3 as toRef, aV as VResizeObserver, as as mergeProps, aW as onActivated, aX as onDeactivated, ah as depx, a9 as pxfy, am as renderSlot, aY as resizeObserverManager, aZ as isSymbol, a_ as isObject, a$ as getNative, b0 as root, b1 as overArg, b2 as isPrototype, b3 as isArrayLike, b4 as arrayLikeKeys, b5 as isArray, b6 as MapCache, x as toString, b7 as baseGetTag, b8 as toSource, b9 as Map$1, ba as Symbol$1, bb as eq, bc as Uint8Array, bd as isBuffer, be as Stack, bf as isTypedArray, bg as isObjectLike, bh as isLength, bi as isIndex, bj as isArguments, bk as identity, bl as baseFor, bm as arrayMap, bn as configProviderInjectionKey, y as replaceable, M as cB, L as c$1, ab as cE, ac as iconSwitchTransition, ag as NIconSwitchTransition, bo as resolveSlot, bp as useStyle, R as NBaseIcon, G as useConfig, H as useTheme, _ as useThemeClass, bq as emptyLight, aa as createKey, br as render, U as Transition, a4 as cM, Q as cNotM, P as fadeInScaleUpTransition, ae as resolveWrappedSlot, a5 as NBaseLoading, bs as Scrollbar, bt as useRtl, bu as internalSelectMenuLight, bv as getMargin, bw as cCB, a6 as watchEffect, ad as isSlotEmpty, bx as FocusTrap, F as Fragment, by as XScrollbar, A as popoverLight, bz as clickoutside, V as vShow, bA as getPreciseEventTarget, bB as getFirstSlotVNode, bC as cloneVNode, bD as Text, bE as keep, a0 as call, C as derived, bF as commonVariables, J as changeColor, bG as NBaseClose, bH as color2Class, bI as Wrapper, bJ as internalSelectionLight, bK as commonVars, E as composite, bL as fadeInHeightExpandTransition, bM as NFadeInExpandTransition, bN as ErrorIcon, bO as WarningIcon, bP as InfoIcon, bQ as SuccessIcon, z as createTheme, bR as scrollbarLight, bS as commonVariables$1, bT as resolveSlotWithTypedProps, bU as isSafari, af as useFormItem, bV as markEventEffectPerformed, bW as selectLight, bX as warn, bY as iconLight, bZ as dropdownLight, b_ as dividerLight, b$ as keysOf, c0 as formLight, c1 as commonVariables$2, c2 as createId, c3 as formItemInjectionKey, t as throwError, c4 as omit, c5 as flatten$1, c6 as TransitionGroup, c7 as tabsLight, o as openBlock, c as createElementBlock, b as createBaseVNode, ai as createStaticVNode, c8 as defineStore, au as createBlock, w as withCtx, f as createVNode, u as unref, l as createTextVNode, q as toDisplayString, h as withKeys, B as Button, k as renderList, N as NModal, c9 as toggleTheme, ca as isDark } from "./index-C6XixcTv.js";
 let onceCbs = [];
 const paramsMap = /* @__PURE__ */ new WeakMap();
 function flushOnceCallbacks() {
@@ -15863,6 +15863,60 @@ const BANANA_SIZE_OPTIONS = [
 ];
 const IMAGE_MODELS = [
   {
+    label: "豆包 Seedream 4.5",
+    key: "doubao-seedream-4-5-251128",
+    provider: ["volcengine"],
+    // 火山引擎
+    sizes: SEEDREAM_SIZE_OPTIONS.map((s) => s.key),
+    qualities: SEEDREAM_QUALITY_OPTIONS,
+    getSizesByQuality: (quality) => quality === "4k" ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
+    defaultParams: {
+      size: "2048x2048",
+      quality: "standard",
+      style: "vivid"
+    }
+  },
+  {
+    label: "豆包 Seedream 5.0 Lite",
+    key: "doubao-seedream-5-0-260128",
+    provider: ["volcengine"],
+    // 火山引擎
+    sizes: SEEDREAM_SIZE_OPTIONS.map((s) => s.key),
+    qualities: SEEDREAM_QUALITY_OPTIONS,
+    getSizesByQuality: (quality) => quality === "4k" ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
+    defaultParams: {
+      size: "2048x2048",
+      quality: "standard",
+      style: "vivid"
+    }
+  },
+  {
+    label: "豆包 Seedream 5.0 Pro",
+    key: "doubao-seedream-5-0-pro-260628",
+    provider: ["volcengine"],
+    // 火山引擎
+    sizes: SEEDREAM_SIZE_OPTIONS.map((s) => s.key),
+    qualities: SEEDREAM_QUALITY_OPTIONS,
+    getSizesByQuality: (quality) => quality === "4k" ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
+    defaultParams: {
+      size: "2048x2048",
+      quality: "standard",
+      style: "vivid"
+    }
+  },
+  {
+    label: "Nano Banana",
+    key: "nano-banana",
+    provider: ["volcengine"],
+    // 火宝渠道
+    tips: "尺寸写在提示词中: 尺寸 9:16",
+    sizes: [],
+    defaultParams: {
+      quality: "standard",
+      style: "vivid"
+    }
+  },
+  {
     label: "Nano Banana 2",
     key: "nano-banana-2",
     provider: ["volcengine"],
@@ -15886,60 +15940,6 @@ const IMAGE_MODELS = [
     // getSizesByQuality: (quality) => quality === '4k' ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
     defaultParams: {
       size: "1x1",
-      quality: "standard",
-      style: "vivid"
-    }
-  },
-  {
-    label: "豆包 Seedream 4.5",
-    key: "doubao-seedream-4-5-251128",
-    provider: ["volcengine"],
-    // 火山引擎
-    sizes: SEEDREAM_SIZE_OPTIONS.map((s) => s.key),
-    qualities: SEEDREAM_QUALITY_OPTIONS,
-    getSizesByQuality: (quality) => quality === "4k" ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
-    defaultParams: {
-      size: "2048x2048",
-      quality: "standard",
-      style: "vivid"
-    }
-  },
-  {
-    label: "豆包 Seedream 5.0 lite",
-    key: "doubao-seedream-5-0-260128",
-    provider: ["volcengine"],
-    // 火山引擎
-    sizes: SEEDREAM_SIZE_OPTIONS.map((s) => s.key),
-    qualities: SEEDREAM_QUALITY_OPTIONS,
-    getSizesByQuality: (quality) => quality === "4k" ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
-    defaultParams: {
-      size: "2048x2048",
-      quality: "standard",
-      style: "vivid"
-    }
-  },
-  {
-    label: "豆包 Seedream 5.0 pro",
-    key: "doubao-seedream-5-0-pro-260628",
-    provider: ["volcengine"],
-    // 火山引擎
-    sizes: SEEDREAM_SIZE_OPTIONS.map((s) => s.key),
-    qualities: SEEDREAM_QUALITY_OPTIONS,
-    getSizesByQuality: (quality) => quality === "4k" ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
-    defaultParams: {
-      size: "2048x2048",
-      quality: "standard",
-      style: "vivid"
-    }
-  },
-  {
-    label: "Nano Banana",
-    key: "nano-banana",
-    provider: ["volcengine"],
-    // 火宝渠道
-    tips: "尺寸写在提示词中: 尺寸 9:16",
-    sizes: [],
-    defaultParams: {
       quality: "standard",
       style: "vivid"
     }
@@ -16046,7 +16046,7 @@ const VIDEO_MODELS = [
     defaultParams: { ratio: "16:9", duration: 5, resolution: "1080p" }
   },
   {
-    label: "豆包 Seedance 2.0 fast (图文视频)",
+    label: "豆包 Seedance 2.0 Fast (图文视频)",
     key: "doubao-seedance-2-0-fast-260128",
     provider: ["volcengine"],
     type: "t2v+i2v",
@@ -16060,7 +16060,7 @@ const VIDEO_MODELS = [
     defaultParams: { ratio: "16:9", duration: 5, resolution: "720p" }
   },
   {
-    label: "豆包 Seedance 2.0 mini (图文视频)",
+    label: "豆包 Seedance 2.0 Mini (图文视频)",
     key: "doubao-seedance-2-0-mini-260615",
     provider: ["volcengine"],
     type: "t2v+i2v",
@@ -16110,16 +16110,18 @@ const VIDEO_MODELS = [
   // }
 ];
 const CHAT_MODELS = [
-  { label: "GPT-4o Mini", key: "gpt-4o-mini", provider: ["openai"] },
-  { label: "GPT-4o", key: "gpt-4o", provider: ["openai"] },
-  { label: "GPT-5.2", key: "gpt-5.2", provider: ["openai"] },
   {
-    label: "DeepSeek Chat",
-    key: "deepseek-chat",
-    provider: ["openai", "volcengine"]
+    label: "豆包 Seed 2.1 Pro",
+    key: "doubao-seed-2-1-pro-260628",
+    provider: ["volcengine"]
   },
   {
-    label: "Doubao Seed 2.0 Lite",
+    label: "GLM 5.2 ",
+    key: "glm-5-2-260617",
+    provider: ["volcengine"]
+  },
+  {
+    label: "豆包 Seed 2.0 Lite",
     key: "doubao-seed-2-0-lite-260428",
     provider: ["volcengine"]
   },
@@ -16128,6 +16130,14 @@ const CHAT_MODELS = [
     key: "doubao-seed-1-6-flash-250615",
     provider: ["volcengine"]
   },
+  { label: "GPT-4o Mini", key: "gpt-4o-mini", provider: ["openai"] },
+  { label: "GPT-4o", key: "gpt-4o", provider: ["openai"] },
+  { label: "GPT-5.2", key: "gpt-5.2", provider: ["openai"] },
+  {
+    label: "DeepSeek Chat",
+    key: "deepseek-chat",
+    provider: ["openai", "volcengine"]
+  },
   { label: "Gemini 3 Pro", key: "gemini-3-pro", provider: ["openai"] }
 ];
 const VIDEO_RATIO_OPTIONS = VIDEO_RATIO_LIST;
@@ -16135,7 +16145,7 @@ const VIDEO_DURATION_OPTIONS = [
   { label: "5 秒", key: 5 },
   { label: "10 秒", key: 10 }
 ];
-const DEFAULT_IMAGE_MODEL = "nano-banana-pro";
+const DEFAULT_IMAGE_MODEL = "doubao-seedream-4-5-251128";
 const DEFAULT_VIDEO_MODEL = "doubao-seedance-1-5-pro-251215";
 const DEFAULT_CHAT_MODEL = "doubao-seed-2-0-lite-260428";
 const getModelByName = (key) => {
@@ -16176,6 +16186,7 @@ const PROVIDERS = {
         if (params.quality) adapted.quality = params.quality;
         if (params.style) adapted.style = params.style;
         if (params.image) adapted.image = params.image;
+        if (params.watermark !== void 0) adapted.watermark = params.watermark;
         return adapted;
       },
       video: (params) => {
@@ -16259,11 +16270,21 @@ const PROVIDERS = {
         return "";
       },
       image: (response) => {
-        const data = response.data || response;
-        return (Array.isArray(data) ? data : [data]).map((item) => ({
-          url: item.url || item.b64_json || "",
-          revisedPrompt: item.revised_prompt || ""
-        }));
+        const data = response?.data || response?.images || response?.output || response;
+        let items = [];
+        if (Array.isArray(data)) {
+          items = data;
+        } else if (data && typeof data === "object") {
+          if (Array.isArray(data.images)) items = data.images;
+          else if (Array.isArray(data.results)) items = data.results;
+          else if (Array.isArray(data.items)) items = data.items;
+          else if (data.url || data.b64_json || data.image_url) items = [data];
+          else items = [data];
+        }
+        return items.map((item) => ({
+          url: item.url || item.b64_json || item.image_url || item.image || "",
+          revisedPrompt: item.revised_prompt || item.revisedPrompt || ""
+        })).filter((item) => item.url);
       },
       video: (response) => {
         return {
@@ -16328,11 +16349,21 @@ const PROVIDERS = {
         return "";
       },
       image: (response) => {
-        const data = response.data || response;
-        return (Array.isArray(data) ? data : [data]).map((item) => ({
-          url: item.url || item.b64_json || "",
-          revisedPrompt: item.revised_prompt || ""
-        }));
+        const data = response?.data || response?.images || response?.output || response;
+        let items = [];
+        if (Array.isArray(data)) {
+          items = data;
+        } else if (data && typeof data === "object") {
+          if (Array.isArray(data.images)) items = data.images;
+          else if (Array.isArray(data.results)) items = data.results;
+          else if (Array.isArray(data.items)) items = data.items;
+          else if (data.url || data.b64_json || data.image_url) items = [data];
+          else items = [data];
+        }
+        return items.map((item) => ({
+          url: item.url || item.b64_json || item.image_url || item.image || "",
+          revisedPrompt: item.revised_prompt || item.revisedPrompt || ""
+        })).filter((item) => item.url);
       },
       video: (response) => {
         return {
@@ -17351,18 +17382,232 @@ const _sfc_main = {
     };
   }
 };
+const promptList = [
+  "林间白衣少女",
+  "云海执剑侠客",
+  "银发蓝瞳少年",
+  "弄堂旗袍女子",
+  "雨夜机甲少女",
+  "草原骑马少年",
+  "黑袍女巫水晶球",
+  "秋日校服少女",
+  "雨中樱花浪人",
+  "云端白翼天使",
+  "晚霞海盗船长",
+  "晨雾瑜伽少女",
+  "雨巷油纸书生",
+  "实验室机械人偶",
+  "篝火游牧公主",
+  "蓝光电竞少女",
+  "森林尖耳精灵",
+  "深海潜水少女",
+  "舞台摇滚歌手",
+  "雪山登山旅人",
+  "古堡洛丽塔少女",
+  "古寺静坐僧侣",
+  "太空宇航员",
+  "窗边芭蕾舞者",
+  "月夜黑衣刺客",
+  "码头渔村少女",
+  "高塔炼金术士",
+  "夜景都市白领",
+  "雨林部落少女",
+  "公路机车骑士",
+  "烟雨古风仙子",
+  "麦田放风筝孩童",
+  "宫殿银发女王",
+  "海岸冲浪少年",
+  "窗下伏案才女",
+  "废墟末日猎人",
+  "月光深海人鱼",
+  "球场棒球少年",
+  "庄园下午茶贵妇",
+  "云海御剑道长",
+  "雾绕喀斯特峰林",
+  "冰川极光洞穴",
+  "春雨江南水乡",
+  "沙漠银河星空",
+  "雨林丁达尔光",
+  "樱花富士山湖",
+  "悬崖惊涛海岸",
+  "漫山秋日枫林",
+  "雪原漫天飞雪",
+  "深海发光水母",
+  "浮空岛屿瀑布",
+  "古镇黄昏灯笼",
+  "草原花海牛羊",
+  "荒芜火山地貌",
+  "薄雾竹林小径",
+  "水城彩色贡多拉",
+  "戈壁落日雅丹",
+  "雪山高山草甸",
+  "雾凇冰晶森林",
+  "椰林白沙滩海岛",
+  "藤蔓废弃乐园",
+  "日出云海梯田",
+  "碧水峡谷河流",
+  "萤火暗夜森林",
+  "悬崖欧式古堡",
+  "黄昏渔港归船",
+  "双星外星地貌",
+  "古道金黄银杏",
+  "镜面盐湖大地",
+  "黄山松涛云海",
+  "芦苇晨雾湿地",
+  "朝霞都市天际线",
+  "溶洞彩色钟乳石",
+  "紫色薰衣草庄园",
+  "裂纹冰封湖面",
+  "雨林彩虹瀑布",
+  "云层浮空港口",
+  "炊烟山间梯田",
+  "礁石海鸟海滩",
+  "丛林上古石像",
+  "月夜九尾白狐",
+  "鎏金巨龙腾云",
+  "林间花角白鹿",
+  "深海巨大蓝鲸",
+  "沼泽展翅仙鹤",
+  "森林纯白独角兽",
+  "雨林黑豹巡行",
+  "浴火涅槃凤凰",
+  "池塘五彩锦鲤",
+  "雪原银灰巨狼",
+  "花海漫天彩蝶",
+  "海面浮游玄龟",
+  "古枝暗夜猫头鹰",
+  "珊瑚成群海马",
+  "祥云山间麒麟",
+  "草原落日雄狮",
+  "雷云电光雷鸟",
+  "窗台慵懒猫咪",
+  "云海巨鲲遨游",
+  "林间秋日麋鹿",
+  "悬崖小型翼龙",
+  "竹林大熊猫",
+  "溪流戏水水獭",
+  "海面精卫神鸟",
+  "雪山白虎迎风",
+  "长空信天翁",
+  "雨林七彩鹦鹉",
+  "远古山林食铁兽",
+  "花丛萤火虫群",
+  "夕阳礁石海狮",
+  "窗下古风书桌",
+  "黄铜齿轮钟表",
+  "庭院假山鱼池",
+  "落地窗巨型图书馆",
+  "樱花落武士刀",
+  "祭坛发光圣杯",
+  "复古胶片相机",
+  "森林茅草小屋",
+  "雨夜赛博街巷",
+  "瓷瓶寒梅插花",
+  "远洋木质帆船",
+  "宝石魔法法杖",
+  "极简日式茶室",
+  "暖光黑胶唱机",
+  "石柱悬空神殿",
+  "古巷竹编灯笼",
+  "太空流线飞船",
+  "陶罐鲜果静物",
+  "石窟天光佛像",
+  "云海热气球群",
+  "电影级景深光影",
+  "宫崎骏手绘风",
+  "厚涂油画笔触",
+  "干净二次元画风",
+  "胶片写实摄影",
+  "留白水墨国风",
+  "霓虹赛博朋克",
+  "复古蒸汽朋克",
+  "日式浮世绘",
+  "马卡龙治愈插画",
+  "超现实奇幻构图",
+  "新海诚通透光影",
+  "哥特暗调美学",
+  "莫兰迪低饱和",
+  "敦煌复古壁画",
+  "逆光金色轮廓光",
+  "朦胧漫射柔光",
+  "水面波光碎影",
+  "粒子星尘特效",
+  "生锈废墟质感",
+  "少女乘蒲公英浮空",
+  "楼顶机甲眺望晚霞",
+  "扁舟穿行桃花江",
+  "外星荧光水晶森林",
+  "孩童与白鹿林间",
+  "鱼群环绕海底古城",
+  "浮空岛空中市集",
+  "雨夜撑伞东京街巷",
+  "仙门云海仙鹤飞",
+  "女巫飞越满月森林",
+  "湖泊倒映雪山星空",
+  "火车穿行花海隧道",
+  "灵狐栖于桃花枝头",
+  "舷窗遥望银河星云",
+  "庭院落雪红梅开",
+  "巨树内部村落城邦",
+  "粉橙日落沙滩海岸",
+  "机甲对峙古风城楼",
+  "夏夜孩童追萤火",
+  "冰原极光上古神殿",
+  "雨后鲜花玻璃橱窗",
+  "浮空岛垂落大瀑布",
+  "断桥夜雨抚琴人",
+  "深海珊瑚人鱼城堡",
+  "梧桐道少女等列车",
+  "火山脚下古老石阵",
+  "云朵幻化成绵羊",
+  "荷塘烟雨执伞女子",
+  "列车穿行雾中都市",
+  "荒原锈蚀巨型机器人",
+  "牡丹花海仕女抚琴",
+  "雪原木屋窗边暖灯",
+  "树屋精灵发光菌类",
+  "夜市渔船海面灯火",
+  "石桥流水春日桃花",
+  "迷雾海上孤帆远航",
+  "藤蔓缠绕巨型雕像",
+  "露台远眺满城灯火",
+  "风沙淹没古城遗迹",
+  "月下花丛翩跹蝶舞",
+  "冰雪山间隐秘木屋",
+  "流云缠绕高山神殿",
+  "浅滩湖面白鹭低飞",
+  "长廊晚风摇曳花灯",
+  "荒漠孤树漫天晚霞",
+  "云间飞鸟穿越霞光",
+  "青石古道漫山野花",
+  "浪涛拍打黑色礁石",
+  "烛光照亮古老卷轴",
+  "晚风拂动芦苇花海"
+];
+function getRandomSuggestion(count = 5) {
+  const list = [...promptList];
+  const result = [];
+  const max = Math.min(count, list.length);
+  for (let i = 0; i < max; i++) {
+    const randomIndex = Math.floor(Math.random() * list.length);
+    result.push(list[randomIndex]);
+    list.splice(randomIndex, 1);
+  }
+  return result;
+}
 export {
   ApiSettings as A,
-  SEEDREAM_4K_SIZE_OPTIONS as B,
+  SEEDREAM_SIZE_OPTIONS as B,
   CopyOutline as C,
   DEFAULT_CHAT_MODEL as D,
-  VIDEO_RATIO_OPTIONS as E,
-  VIDEO_RATIO_LIST as F,
-  VIDEO_DURATION_OPTIONS as G,
-  getModelByName as H,
+  SEEDREAM_4K_SIZE_OPTIONS as E,
+  VIDEO_RATIO_OPTIONS as F,
+  VIDEO_RATIO_LIST as G,
+  VIDEO_DURATION_OPTIONS as H,
   IMAGE_MODELS as I,
-  _export_sfc as J,
-  NSelect as K,
+  getModelByName as J,
+  _export_sfc as K,
+  NSelect as L,
   NIcon as N,
   PROVIDERS as P,
   RefreshOutline as R,
@@ -17376,24 +17621,24 @@ export {
   NDropdown as d,
   NInput as e,
   deleteProject as f,
-  duplicateProject as g,
-  NPopover as h,
+  getRandomSuggestion as g,
+  duplicateProject as h,
   initProjectsStore as i,
-  popoverBaseProps as j,
-  useLocale as k,
-  useMergedState as l,
-  beforeNextFrameOnce as m,
-  useCompitable as n,
-  updateProjectCanvas as o,
+  NPopover as j,
+  popoverBaseProps as k,
+  useLocale as l,
+  useMergedState as m,
+  beforeNextFrameOnce as n,
+  useCompitable as o,
   projects as p,
-  getProjectCanvas as q,
+  updateProjectCanvas as q,
   renameProject as r,
-  DEFAULT_VIDEO_MODEL as s,
-  DEFAULT_IMAGE_MODEL as t,
+  getProjectCanvas as s,
+  DEFAULT_VIDEO_MODEL as t,
   useModelStore as u,
-  getDefaultProvider as v,
-  getProviderList as w,
-  getProviderConfig as x,
-  CHAT_MODELS as y,
-  SEEDREAM_SIZE_OPTIONS as z
+  DEFAULT_IMAGE_MODEL as v,
+  getDefaultProvider as w,
+  getProviderList as x,
+  getProviderConfig as y,
+  CHAT_MODELS as z
 };

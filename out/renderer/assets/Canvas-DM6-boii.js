@@ -1,5 +1,5 @@
-import { x as toString$1, y as replaceable, s as h, a as defineComponent, z as createTheme, A as popoverLight, C as derived, D as commonVars, E as composite, G as useConfig, H as useTheme, m as computed, l as ref, I as commonVars$1, J as changeColor, K as createInjectionKey, L as c, M as cB, O as fadeInTransition, P as fadeInScaleUpTransition, Q as cNotM, R as NBaseIcon, S as LazyTeleport, g as withDirectives, T as zindexable, U as Transition$2, F as Fragment, V as vShow, W as toRefs$1, X as watch, Y as onBeforeUnmount, Z as off, _ as useThemeClass, $ as isMounted, a0 as call, i as inject, a1 as on, a2 as normalizeStyle, a3 as toRef, a4 as cM, a5 as NBaseLoading, a6 as watchEffect, a7 as exposedLoadingProps, a8 as spinLight, a9 as pxfy, aa as createKey, ab as cE, ac as iconSwitchTransition, ad as isSlotEmpty, ae as resolveWrappedSlot, af as useFormItem, ag as NIconSwitchTransition, ah as depx, o as openBlock, c as createElementBlock, ai as createStaticVNode, b as createBaseVNode, aj as effectScope, ak as useSlots, al as onUnmounted, f as createVNode, w as withCtx, am as renderSlot, u as unref, an as getCurrentInstance, ao as getCurrentScope, ap as onScopeDispose, e as onMounted, p as normalizeClass, aq as createPropsRestProxy, ar as useAttrs, as as mergeProps, at as createCommentVNode, au as createBlock, av as Teleport, aw as onBeforeMount, r as renderList, ax as nextTick, ay as isMemoSame, az as shallowRef, q as toDisplayString, aA as reactive, aB as isRef, aC as customRef, aD as resolveDynamicComponent, k as createTextVNode, aE as provide, aF as toValue$1, aG as markRaw, aH as readonly, aI as resolveComponent, aJ as normalizeProps, B as Button, N as NModal, j as withModifiers, v as vModelText, h as withKeys, aK as useRoute, n as useRouter } from "./index-QNl-QN-z.js";
-import { h as NPopover, j as popoverBaseProps, k as useLocale, l as useMergedState, m as beforeNextFrameOnce, n as useCompitable, o as updateProjectCanvas, q as getProjectCanvas, D as DEFAULT_CHAT_MODEL, V as VIDEO_MODELS, s as DEFAULT_VIDEO_MODEL, I as IMAGE_MODELS, t as DEFAULT_IMAGE_MODEL, v as getDefaultProvider, w as getProviderList, P as PROVIDERS, x as getProviderConfig, y as CHAT_MODELS, z as SEEDREAM_SIZE_OPTIONS, B as SEEDREAM_4K_SIZE_OPTIONS, E as VIDEO_RATIO_OPTIONS, F as VIDEO_RATIO_LIST, G as VIDEO_DURATION_OPTIONS, u as useModelStore, H as getModelByName, N as NIcon, J as _export_sfc, b as AddOutline, e as NInput, C as CopyOutline, T as TrashOutline, d as NDropdown, R as RefreshOutline, K as NSelect, i as initProjectsStore, _ as _sfc_main$h, A as ApiSettings, S as SettingsOutline, a as SendOutline, r as renameProject, p as projects } from "./AppHeader-G8U-5zEE.js";
+import { x as toString$1, y as replaceable, s as h, a as defineComponent, z as createTheme, A as popoverLight, C as derived, D as commonVars, E as composite, G as useConfig, H as useTheme, m as computed, r as ref, I as commonVars$1, J as changeColor, K as createInjectionKey, L as c, M as cB, O as fadeInTransition, P as fadeInScaleUpTransition, Q as cNotM, R as NBaseIcon, S as LazyTeleport, g as withDirectives, T as zindexable, U as Transition$2, F as Fragment, V as vShow, W as toRefs$1, X as watch, Y as onBeforeUnmount, Z as off, _ as useThemeClass, $ as isMounted, a0 as call, i as inject, a1 as on, a2 as normalizeStyle, a3 as toRef, a4 as cM, a5 as NBaseLoading, a6 as watchEffect, a7 as exposedLoadingProps, a8 as spinLight, a9 as pxfy, aa as createKey, ab as cE, ac as iconSwitchTransition, ad as isSlotEmpty, ae as resolveWrappedSlot, af as useFormItem, ag as NIconSwitchTransition, ah as depx, o as openBlock, c as createElementBlock, ai as createStaticVNode, b as createBaseVNode, aj as effectScope, ak as useSlots, al as onUnmounted, f as createVNode, w as withCtx, am as renderSlot, u as unref, an as getCurrentInstance, ao as getCurrentScope, ap as onScopeDispose, e as onMounted, p as normalizeClass, aq as createPropsRestProxy, ar as useAttrs, as as mergeProps, at as createCommentVNode, au as createBlock, av as Teleport, aw as onBeforeMount, k as renderList, ax as nextTick, ay as isMemoSame, az as shallowRef, q as toDisplayString, aA as reactive, aB as isRef, aC as customRef, aD as resolveDynamicComponent, l as createTextVNode, aE as provide, aF as toValue$1, aG as markRaw, aH as readonly, aI as resolveComponent, aJ as normalizeProps, B as Button, N as NModal, j as withModifiers, v as vModelText, h as withKeys, aK as useRoute, n as useRouter } from "./index-C6XixcTv.js";
+import { j as NPopover, k as popoverBaseProps, l as useLocale, m as useMergedState, n as beforeNextFrameOnce, o as useCompitable, q as updateProjectCanvas, s as getProjectCanvas, D as DEFAULT_CHAT_MODEL, V as VIDEO_MODELS, t as DEFAULT_VIDEO_MODEL, I as IMAGE_MODELS, v as DEFAULT_IMAGE_MODEL, w as getDefaultProvider, x as getProviderList, P as PROVIDERS, y as getProviderConfig, z as CHAT_MODELS, B as SEEDREAM_SIZE_OPTIONS, E as SEEDREAM_4K_SIZE_OPTIONS, F as VIDEO_RATIO_OPTIONS, G as VIDEO_RATIO_LIST, H as VIDEO_DURATION_OPTIONS, u as useModelStore, J as getModelByName, N as NIcon, K as _export_sfc, b as AddOutline, e as NInput, C as CopyOutline, T as TrashOutline, d as NDropdown, R as RefreshOutline, L as NSelect, g as getRandomSuggestion, i as initProjectsStore, _ as _sfc_main$h, A as ApiSettings, S as SettingsOutline, a as SendOutline, r as renameProject, p as projects } from "./suggestion-C-jH-FmI.js";
 function download(url, name) {
   if (!url) return;
   const a = document.createElement("a");
@@ -15991,7 +15991,7 @@ const resolveUrl = (url = "") => {
 const request = async (config = {}) => {
   const { url = "", method = "get", data, params, headers = {} } = config;
   if (!window.api?.httpRequest) {
-    const msg = "当前环境不支持网络请求（需在 Electron 中运行）";
+    const msg = "网络请求错误";
     window.$message?.error(msg);
     return Promise.reject(new Error(msg));
   }
@@ -16002,6 +16002,9 @@ const request = async (config = {}) => {
   if (apiKey && !isNoAuth) {
     finalHeaders["Authorization"] = `Bearer ${apiKey}`;
   }
+  console.log(
+    `[request] request before: ${method.toUpperCase()} ${finalUrl} -> ${JSON.stringify(data)} -> ${JSON.stringify(params)}`
+  );
   const res = await window.api.httpRequest({
     method,
     url: finalUrl,
@@ -16010,7 +16013,7 @@ const request = async (config = {}) => {
     params
   });
   console.log(`[request] result: ${method.toUpperCase()} ${finalUrl} -> ${res.status}`, res.data);
-  if (res.ok) {
+  if (res.ok && res.status >= 200 && res.status < 300) {
     return res.data;
   }
   const body = res.data || {};
@@ -16442,19 +16445,24 @@ const getModelConfig = (modelKey) => {
   return allModels.find((m) => m.key === modelKey);
 };
 const getModelSizeOptions = (modelKey, quality = "standard") => {
-  const model = IMAGE_MODELS.find((m) => m.key === modelKey);
-  if (model?.getSizesByQuality) {
+  const model = getModelConfig(modelKey);
+  if (!model) return SEEDREAM_SIZE_OPTIONS;
+  if (typeof model.getSizesByQuality === "function") {
     return model.getSizesByQuality(quality);
   }
-  if (!model?.sizes) return SEEDREAM_SIZE_OPTIONS;
-  const sizeOptions = quality === "4k" ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS;
+  if (!model.sizes || model.sizes.length === 0) return [];
+  const knownSizeOptions = quality === "4k" ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS;
   return model.sizes.map((size) => {
-    const option = sizeOptions.find((o) => o.key === size);
-    return option || { label: size, key: size };
+    const option = knownSizeOptions.find((o) => o.key === size);
+    if (option) return option;
+    if (/^\d+x\d+$/.test(size)) {
+      return { label: size.replace("x", ":"), key: size };
+    }
+    return { label: size, key: size };
   });
 };
 const getModelQualityOptions = (modelKey) => {
-  const model = IMAGE_MODELS.find((m) => m.key === modelKey);
+  const model = getModelConfig(modelKey);
   return model?.qualities || [];
 };
 const getModelRatioOptions = (modelKey) => {
@@ -16675,7 +16683,8 @@ const useImageGeneration = () => {
       const requestData = {
         model: params.model,
         prompt: params.prompt,
-        size: params.size || modelConfig?.defaultParams?.size || "2048x2048"
+        size: params.size || modelConfig?.defaultParams?.size || "2048x2048",
+        watermark: false
         // n: params.n || 1
       };
       if (params.image) {
@@ -16687,11 +16696,18 @@ const useImageGeneration = () => {
         endpoint: modelStore.getImageEndpoint()
       });
       const adaptedData = adaptResponse("image", response);
-      images.value = adaptedData;
-      currentImage.value = adaptedData[0] || null;
+      const validImages = adaptedData.filter((img) => img && img.url);
+      if (validImages.length === 0) {
+        const err = new Error("生成结果中没有有效图片 URL");
+        setError(err);
+        throw err;
+      }
+      images.value = validImages;
+      currentImage.value = validImages[0] || null;
       setSuccess();
-      return adaptedData;
+      return validImages;
     } catch (err) {
+      console.error("[useImageGeneration] 生成图片失败:", err);
       setError(err);
       throw err;
     }
@@ -16713,7 +16729,8 @@ const useVideoGeneration = () => {
     const modelConfig = getModelByName(params.model);
     const requestData = {
       model: params.model,
-      prompt: params.prompt || ""
+      prompt: params.prompt || "",
+      watermark: false
     };
     if (params.first_frame_image) requestData.first_frame_image = params.first_frame_image;
     if (params.last_frame_image) requestData.last_frame_image = params.last_frame_image;
@@ -19892,8 +19909,7 @@ const _sfc_main$8 = {
       return getModelSizeOptions(localModel.value, localQuality.value);
     });
     const hasSizeOptions = computed(() => {
-      const config = getModelConfig(localModel.value);
-      return config?.sizes && config.sizes.length > 0;
+      return sizeOptions.value && sizeOptions.value.length > 0;
     });
     const displaySize = computed(() => {
       const option = sizeOptions.value.find((o) => o.key === localSize.value);
@@ -19903,9 +19919,29 @@ const _sfc_main$8 = {
       const availableModels = modelStore.availableImageModels;
       const isModelAvailable = availableModels.some((m) => m.key === localModel.value);
       if (!localModel.value || !isModelAvailable) {
-        localModel.value = modelStore.selectedImageModel || availableModels[0]?.key || DEFAULT_IMAGE_MODEL;
-        updateNode(props.id, { model: localModel.value });
+        const newModel = modelStore.selectedImageModel || availableModels[0]?.key || DEFAULT_IMAGE_MODEL;
+        localModel.value = newModel;
       }
+      const config = getModelConfig(localModel.value);
+      const qualityOpts = getModelQualityOptions(localModel.value);
+      if (qualityOpts.length > 0) {
+        const currentQualityValid = qualityOpts.some((o) => o.key === localQuality.value);
+        if (!currentQualityValid) {
+          localQuality.value = config?.defaultParams?.quality || qualityOpts[0].key;
+        }
+      }
+      const sizeOpts = getModelSizeOptions(localModel.value, localQuality.value);
+      if (sizeOpts.length > 0) {
+        const currentSizeValid = sizeOpts.some((o) => o.key === localSize.value);
+        if (!currentSizeValid) {
+          localSize.value = config?.defaultParams?.size || sizeOpts[0].key;
+        }
+      }
+      updateNode(props.id, {
+        model: localModel.value,
+        quality: localQuality.value,
+        size: localSize.value
+      });
     });
     const resolveTextMentionsForImage = (textNode) => {
       const content = textNode.data?.content || "";
@@ -20031,28 +20067,43 @@ const _sfc_main$8 = {
     const handleModelSelect = (key) => {
       localModel.value = key;
       const config = getModelConfig(key);
-      if (config?.defaultParams?.quality) {
-        localQuality.value = config.defaultParams.quality;
+      const newQualityOptions = getModelQualityOptions(key);
+      if (newQualityOptions.length > 0) {
+        const defaultQuality = config?.defaultParams?.quality || newQualityOptions[0].key;
+        const currentQualityValid = newQualityOptions.some((o) => o.key === localQuality.value);
+        localQuality.value = currentQualityValid ? localQuality.value : defaultQuality;
+      } else {
+        localQuality.value = "standard";
       }
       const newSizeOptions = getModelSizeOptions(key, localQuality.value);
       let defaultSize = config?.defaultParams?.size;
       if (!defaultSize && newSizeOptions.length > 0) {
-        defaultSize = newSizeOptions.find((o) => o.key === "2048x2048")?.key || newSizeOptions.find((o) => o.key.includes("1024"))?.key || newSizeOptions[0].key;
+        defaultSize = newSizeOptions.find((o) => o.key === "2048x2048")?.key || newSizeOptions.find((o) => o.key === "1x1")?.key || newSizeOptions.find((o) => o.key.includes("1024"))?.key || newSizeOptions[0].key;
       }
-      localSize.value = defaultSize;
+      const currentSizeValid = newSizeOptions.some((o) => o.key === localSize.value);
+      localSize.value = currentSizeValid ? localSize.value : defaultSize;
       updateNode(props.id, {
         model: key,
         quality: localQuality.value,
-        size: defaultSize
+        size: localSize.value
       });
     };
     const handleQualitySelect = (quality) => {
       localQuality.value = quality;
       const newSizeOptions = getModelSizeOptions(localModel.value, quality);
       if (newSizeOptions.length > 0) {
-        const defaultSize = quality === "4k" ? newSizeOptions.find((o) => o.key.includes("4096"))?.key || newSizeOptions[4]?.key : newSizeOptions[4]?.key;
-        localSize.value = defaultSize || newSizeOptions[0].key;
-        updateNode(props.id, { quality, size: localSize.value });
+        const currentSizeValid = newSizeOptions.some((o) => o.key === localSize.value);
+        if (currentSizeValid) {
+          updateNode(props.id, { quality });
+        } else {
+          const config = getModelConfig(localModel.value);
+          let defaultSize = config?.defaultParams?.size;
+          if (!defaultSize || !newSizeOptions.some((o) => o.key === defaultSize)) {
+            defaultSize = quality === "4k" ? newSizeOptions.find((o) => o.key.includes("4096"))?.key || newSizeOptions[4]?.key : newSizeOptions[4]?.key;
+          }
+          localSize.value = defaultSize || newSizeOptions[0].key;
+          updateNode(props.id, { quality, size: localSize.value });
+        }
       } else {
         updateNode(props.id, { quality });
       }
@@ -20149,13 +20200,15 @@ const _sfc_main$8 = {
           prompt,
           size: localSize.value,
           quality: localQuality.value,
-          n: 1
+          n: 1,
+          watermark: false
         };
         if (refImages.length > 0) {
           params.image = refImages;
         }
         const result = await generate(params);
-        if (result && result.length > 0) {
+        console.log("[ImageConfigNode] 生成结果:", result);
+        if (result && result.length > 0 && result[0].url) {
           updateNode(imageNodeId, {
             url: result[0].url,
             loading: false,
@@ -20164,9 +20217,18 @@ const _sfc_main$8 = {
             updatedAt: Date.now()
           });
           updateNode(props.id, { executed: true, outputNodeId: imageNodeId });
+          window.$message?.success("图片生成成功");
+        } else {
+          const errMsg = "生成结果中没有有效图片 URL";
+          updateNode(imageNodeId, {
+            loading: false,
+            error: errMsg,
+            updatedAt: Date.now()
+          });
+          window.$message?.error(errMsg);
         }
-        window.$message?.success("图片生成成功");
       } catch (err) {
+        console.error("[ImageConfigNode] 生成图片失败:", err);
         updateNode(imageNodeId, {
           loading: false,
           error: err.message || "生成失败",
@@ -20210,12 +20272,21 @@ const _sfc_main$8 = {
       if (newModel && newModel !== localModel.value) {
         localModel.value = newModel;
         const config = getModelConfig(newModel);
-        if (config?.defaultParams?.quality) {
-          localQuality.value = config.defaultParams.quality;
+        const newQualityOptions = getModelQualityOptions(newModel);
+        if (newQualityOptions.length > 0) {
+          const defaultQuality = config?.defaultParams?.quality || newQualityOptions[0].key;
+          const currentQualityValid = newQualityOptions.some((o) => o.key === localQuality.value);
+          localQuality.value = currentQualityValid ? localQuality.value : defaultQuality;
+        } else {
+          localQuality.value = "standard";
         }
-        if (config?.defaultParams?.size) {
-          localSize.value = config.defaultParams.size;
+        const newSizeOptions = getModelSizeOptions(newModel, localQuality.value);
+        let defaultSize = config?.defaultParams?.size;
+        if (!defaultSize && newSizeOptions.length > 0) {
+          defaultSize = newSizeOptions.find((o) => o.key === "2048x2048")?.key || newSizeOptions.find((o) => o.key === "1x1")?.key || newSizeOptions.find((o) => o.key.includes("1024"))?.key || newSizeOptions[0].key;
         }
+        const currentSizeValid = newSizeOptions.some((o) => o.key === localSize.value);
+        localSize.value = currentSizeValid ? localSize.value : defaultSize;
       }
     });
     watch(() => props.data, () => {
@@ -20434,7 +20505,7 @@ const _sfc_main$8 = {
     };
   }
 };
-const ImageConfigNode = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-ed85e3d8"]]);
+const ImageConfigNode = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["__scopeId", "data-v-ab42ca67"]]);
 const _imports_0 = "" + new URL("loading-OwpA--1d.webp", import.meta.url).href;
 const _hoisted_1$7 = { class: "px-3 py-2 border-b border-[var(--border-color)]" };
 const _hoisted_2$4 = { class: "flex items-center justify-between" };
@@ -21757,7 +21828,8 @@ const _sfc_main$5 = {
       }, 50);
       try {
         const params = {
-          model: localModel.value
+          model: localModel.value,
+          watermark: false
         };
         if (prompt) {
           params.prompt = prompt;
@@ -22030,7 +22102,7 @@ const _sfc_main$5 = {
     };
   }
 };
-const VideoConfigNode = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-145dd543"]]);
+const VideoConfigNode = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["__scopeId", "data-v-34136d0a"]]);
 const _hoisted_1$4 = { class: "flex items-center justify-between px-3 py-2 border-b border-[var(--border-color)] bg-gradient-to-r from-purple-500/10 to-transparent" };
 const _hoisted_2$1 = { class: "flex items-center gap-2" };
 const _hoisted_3$1 = { class: "flex items-center gap-1" };
@@ -23306,7 +23378,6 @@ const _hoisted_23 = { class: "flex items-center gap-2 text-sm text-[var(--text-s
 const _hoisted_24 = ["disabled"];
 const _hoisted_25 = { class: "flex flex-wrap items-center justify-center gap-2 mt-2" };
 const _hoisted_26 = ["onClick"];
-const _hoisted_27 = { class: "p-1 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors" };
 const inputPlaceholder = '你可以试着说"帮我生成一个二次元的卡通角色"';
 const _sfc_main = {
   __name: "Canvas",
@@ -23367,9 +23438,7 @@ const _sfc_main = {
     const showWorkflowPanel = ref(false);
     const renameValue = ref("");
     const hasDownloadableAssets = computed(() => {
-      return nodes.value.some(
-        (n) => (n.type === "image" || n.type === "video") && n.data?.url
-      );
+      return nodes.value.some((n) => (n.type === "image" || n.type === "video") && n.data?.url);
     });
     const projectName = computed(() => {
       const project = projects.value.find((p) => p.id === route.params.id);
@@ -23383,10 +23452,32 @@ const _sfc_main = {
     const tools = [
       { id: "text", name: "文本", icon: TextOutline, action: () => addNewNode("text") },
       { id: "image", name: "图片", icon: ImageOutline, action: () => addNewNode("image") },
-      { id: "imageConfig", name: "文生图", icon: ColorPaletteOutline, action: () => addNewNode("imageConfig") },
-      { id: "videoConfig", name: "视频生成", icon: VideocamOutline, action: () => addNewNode("videoConfig") },
-      { id: "undo", name: "撤销", icon: ArrowUndoOutline, action: () => undo(), disabled: () => !canUndo() },
-      { id: "redo", name: "重做", icon: ArrowRedoOutline, action: () => redo(), disabled: () => !canRedo() }
+      {
+        id: "imageConfig",
+        name: "文生图",
+        icon: ColorPaletteOutline,
+        action: () => addNewNode("imageConfig")
+      },
+      {
+        id: "videoConfig",
+        name: "视频生成",
+        icon: VideocamOutline,
+        action: () => addNewNode("videoConfig")
+      },
+      {
+        id: "undo",
+        name: "撤销",
+        icon: ArrowUndoOutline,
+        action: () => undo(),
+        disabled: () => !canUndo()
+      },
+      {
+        id: "redo",
+        name: "重做",
+        icon: ArrowRedoOutline,
+        action: () => redo(),
+        disabled: () => !canRedo()
+      }
     ];
     const nodeTypeOptions = [
       { type: "text", name: "文本节点", icon: TextOutline, color: "#3b82f6" },
@@ -23396,12 +23487,10 @@ const _sfc_main = {
       { type: "image", name: "图片节点", icon: ImageOutline, color: "#8b5cf6" },
       { type: "video", name: "视频节点", icon: VideocamOutline, color: "#ef4444" }
     ];
-    const suggestions = [
-      "像个魔法森林",
-      "三只不同的小猫",
-      "生成多角度分镜",
-      "夏日田野环绕漫步"
-    ];
+    const suggestions = ref(getRandomSuggestion());
+    const handleRefreshSuggestion = () => {
+      suggestions.value = getRandomSuggestion();
+    };
     const addNewNode = async (type) => {
       const viewportCenterX = -viewport.value.x / viewport.value.zoom + window.innerWidth / 2 / viewport.value.zoom;
       const viewportCenterY = -viewport.value.y / viewport.value.zoom + window.innerHeight / 2 / viewport.value.zoom;
@@ -23621,13 +23710,21 @@ const _sfc_main = {
             await createTextToImageWorkflow(content, { x: baseX, y: baseY });
           }
         } else {
-          const textNodeId = addNode("text", { x: baseX, y: baseY }, {
-            content,
-            label: "提示词"
-          });
-          const imageConfigNodeId = addNode("imageConfig", { x: baseX + 400, y: baseY }, {
-            label: "文生图"
-          });
+          const textNodeId = addNode(
+            "text",
+            { x: baseX, y: baseY },
+            {
+              content,
+              label: "提示词"
+            }
+          );
+          const imageConfigNodeId = addNode(
+            "imageConfig",
+            { x: baseX + 400, y: baseY },
+            {
+              label: "文生图"
+            }
+          );
           addEdge({
             source: textNodeId,
             target: imageConfigNodeId,
@@ -23949,14 +24046,17 @@ const _sfc_main = {
             ]),
             createBaseVNode("div", _hoisted_25, [
               _cache[23] || (_cache[23] = createBaseVNode("span", { class: "text-xs text-[var(--text-secondary)]" }, "推荐：", -1)),
-              (openBlock(), createElementBlock(Fragment, null, renderList(suggestions, (tag) => {
-                return createBaseVNode("button", {
+              (openBlock(true), createElementBlock(Fragment, null, renderList(suggestions.value, (tag) => {
+                return openBlock(), createElementBlock("button", {
                   key: tag,
                   onClick: ($event) => chatInput.value = tag,
                   class: "px-2 py-0.5 text-xs rounded-full bg-[var(--bg-secondary)]/80 border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-colors"
                 }, toDisplayString(tag), 9, _hoisted_26);
-              }), 64)),
-              createBaseVNode("button", _hoisted_27, [
+              }), 128)),
+              createBaseVNode("button", {
+                class: "p-1 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors",
+                onClick: handleRefreshSuggestion
+              }, [
                 createVNode(unref(NIcon), { size: 14 }, {
                   default: withCtx(() => [
                     createVNode(unref(RefreshOutline))
