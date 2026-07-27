@@ -9,6 +9,9 @@ jobs:
   release:
     runs-on: ${{ matrix.os }}
 
+    permissions:
+      contents: write
+
     strategy:
       fail-fast: false
       matrix:
@@ -48,6 +51,18 @@ jobs:
         if: runner.os == 'Linux' || runner.os == 'macOS'
         run: |
           rm -rf dist/builder-debug.yml
+
+      - name: Check RELEASE_TOKEN presence
+        shell: bash
+        env:
+          TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "❌ RELEASE_TOKEN 为空 —— secret 没被读到(名字/位置问题)"
+            exit 1
+          else
+            echo "✅ RELEASE_TOKEN 已读到(值已被 mask)"
+          fi
 
       - name: release
         uses: softprops/action-gh-release@v2
