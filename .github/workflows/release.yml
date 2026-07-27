@@ -6,11 +6,9 @@ on:
       - v*.*.*
 
 jobs:
-  release:
+  # 构建阶段：三平台并行，各自产出并上传为独立 artifact（互不冲突）
+  build:
     runs-on: ${{ matrix.os }}
-
-    permissions:
-      contents: write
 
     strategy:
       fail-fast: false
@@ -42,27 +40,42 @@ jobs:
         if: runner.os == 'Linux'
         run: npm run build:linux
 
-      # list
-      - name: list
-        if: runner.os == 'Linux' || runner.os == 'macOS'
-        run: ls -a dist/
+      # 每个平台上传独立命名的 artifact，避免 v4 同名冲突
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-${{ matrix.os }}
+          path: |
+            dist/*.exe
+            dist/*.dmg
+            dist/*.AppImage
+            dist/*.deb
+            dist/*.zip
+            dist/*.rpm
+            dist/*.yml
+            dist/*.blockmap
+          if-no-files-found: ignore
+          retention-days: 1
 
-      - name: delete noneed file
-        if: runner.os == 'Linux' || runner.os == 'macOS'
-        run: |
-          rm -rf dist/builder-debug.yml
+  # 发布阶段：单次运行，汇总所有平台产物后一次性创建并发布 release
+  release:
+    needs: build
+    runs-on: ubuntu-latest
 
-      - name: Check RELEASE_TOKEN presence
-        shell: bash
-        env:
-          TOKEN: ${{ secrets.RELEASE_TOKEN }}
-        run: |
-          if [ -z "$TOKEN" ]; then
-            echo "❌ RELEASE_TOKEN 为空 —— secret 没被读到(名字/位置问题)"
-            exit 1
-          else
-            echo "✅ RELEASE_TOKEN 已读到(值已被 mask)"
-          fi
+    permissions:
+      contents: write
+
+    steps:
+      # 把三平台的 artifact 合并平铺到同一个 dist 目录
+      - name: Download all artifacts
+        uses: actions/download-artifact@v4
+        with:
+          path: dist
+          pattern: dist-*
+          merge-multiple: true
+
+      - name: List collected artifacts
+        run: ls -R dist
 
       - name: release
         uses: softprops/action-gh-release@v2
