@@ -3,13 +3,28 @@
  */
 import { app, shell, BrowserWindow, ipcMain, nativeTheme } from 'electron'
 import path, { join } from 'path'
-import { fileURLToPath } from 'url'
 import { registerHttpHandlers } from './http.js'
-import { electronApp, optimizer, is } from '@electron-toolkit/utils'
+import { optimizer, is } from '@electron-toolkit/utils'
 import log from './logger.js'
 import icon from '../../resources/icon.png?asset'
 
 let mainWindow = null
+
+// 单实例锁：只允许开启一个窗口
+const gotTheLock = app.requestSingleInstanceLock()
+
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', () => {
+    // 当第二个实例启动时，聚焦已有窗口
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore()
+      mainWindow.focus()
+      mainWindow.show()
+    }
+  })
+}
 
 function createWindow() {
   mainWindow = new BrowserWindow({
