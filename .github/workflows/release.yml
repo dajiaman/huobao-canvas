@@ -1,0 +1,57 @@
+name: Build/release Electron app
+
+on:
+  push:
+    tags:
+      - v*.*.*
+
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: build electron app
+        run: npm run dist
+
+      # list
+      - name: list
+        if: runner.os == 'Linux' || runner.os == 'macOS'
+        run: ls -a dist/
+
+      - name: delete noneed file
+        if: runner.os == 'Linux' || runner.os =='macOS'
+        run: |
+          rm -rf dist/builder-debug.yml
+
+      - name: release
+        uses: softprops/action-gh-release@v1
+        with:
+          draft: false
+          prerelease: false
+          files: |
+            dist/*.exe
+            dist/*.dmg
+            dist/*.AppImage
+            dist/*.deb
+            dust/*.zip
+            dist/*.rpm
+            dist/*.yml
+            dist/*.blockmap
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}

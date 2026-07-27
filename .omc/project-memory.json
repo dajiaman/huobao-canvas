@@ -1,0 +1,444 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1785164886253,
+  "projectRoot": "D:\\code_project\\huobao-canvas",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "vue",
+        "version": "3.5.24",
+        "category": "frontend"
+      },
+      {
+        "name": "vite",
+        "version": "5.2.0",
+        "category": "build"
+      }
+    ],
+    "packageManager": "pnpm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "pnpm build",
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": "pnpm dev",
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "preview": "vite preview"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": true,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "src"
+    ],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "doc": {
+      "path": "doc",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1785164886188,
+      "keyFiles": [
+        "api-config.png",
+        "canvas.png",
+        "home.png",
+        "workflow.png",
+        "workflow2.png"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 2,
+      "lastAccessed": 1785164886218,
+      "keyFiles": [
+        "logo.png",
+        "vite.svg"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 4,
+      "lastAccessed": 1785164886219,
+      "keyFiles": [
+        "App.vue",
+        "main.js",
+        "style.css"
+      ]
+    },
+    "src\\api": {
+      "path": "src\\api",
+      "purpose": "API routes",
+      "fileCount": 5,
+      "lastAccessed": 1785164886221,
+      "keyFiles": [
+        "chat.js",
+        "image.js",
+        "index.js"
+      ]
+    },
+    "src\\assets": {
+      "path": "src\\assets",
+      "purpose": "Static assets",
+      "fileCount": 8,
+      "lastAccessed": 1785164886221,
+      "keyFiles": [
+        "loading.webp",
+        "logo.png",
+        "product01.jpg"
+      ]
+    },
+    "src\\components": {
+      "path": "src\\components",
+      "purpose": "UI components",
+      "fileCount": 6,
+      "lastAccessed": 1785164886222,
+      "keyFiles": [
+        "ApiSettings.vue",
+        "AppHeader.vue",
+        "DownloadModal.vue"
+      ]
+    },
+    "src\\config": {
+      "path": "src\\config",
+      "purpose": "Configuration files",
+      "fileCount": 3,
+      "lastAccessed": 1785164886222,
+      "keyFiles": [
+        "models.js",
+        "providers.js",
+        "workflows.js"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "src\\renderer\\src\\stores\\pinia\\models.js",
+      "accessCount": 9,
+      "lastAccessed": 1785173777930,
+      "type": "file"
+    },
+    {
+      "path": "src\\config\\providers.js",
+      "accessCount": 6,
+      "lastAccessed": 1785166240264,
+      "type": "file"
+    },
+    {
+      "path": "src\\main\\http.js",
+      "accessCount": 6,
+      "lastAccessed": 1785171690000,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\hooks\\useModelConfig.js",
+      "accessCount": 5,
+      "lastAccessed": 1785170909283,
+      "type": "file"
+    },
+    {
+      "path": "src\\main\\index.js",
+      "accessCount": 5,
+      "lastAccessed": 1785171644690,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\api\\chat.js",
+      "accessCount": 5,
+      "lastAccessed": 1785173786267,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\hooks\\useApi.js",
+      "accessCount": 5,
+      "lastAccessed": 1785173882913,
+      "type": "directory"
+    },
+    {
+      "path": "CLAUDE.md",
+      "accessCount": 4,
+      "lastAccessed": 1785165904460,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\components\\ApiSettings.vue",
+      "accessCount": 4,
+      "lastAccessed": 1785169281894,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\config\\providers.js",
+      "accessCount": 4,
+      "lastAccessed": 1785173794695,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\config\\models.js",
+      "accessCount": 4,
+      "lastAccessed": 1785173848275,
+      "type": "directory"
+    },
+    {
+      "path": "src\\renderer",
+      "accessCount": 4,
+      "lastAccessed": 1785174481554,
+      "type": "directory"
+    },
+    {
+      "path": "vite.config.js",
+      "accessCount": 3,
+      "lastAccessed": 1785166183711,
+      "type": "file"
+    },
+    {
+      "path": "src\\utils\\request.js",
+      "accessCount": 3,
+      "lastAccessed": 1785166374194,
+      "type": "file"
+    },
+    {
+      "path": "src",
+      "accessCount": 3,
+      "lastAccessed": 1785167632122,
+      "type": "directory"
+    },
+    {
+      "path": "src\\renderer\\src\\router\\index.js",
+      "accessCount": 3,
+      "lastAccessed": 1785168451601,
+      "type": "file"
+    },
+    {
+      "path": "pnpm-workspace.yaml",
+      "accessCount": 3,
+      "lastAccessed": 1785168579111,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 3,
+      "lastAccessed": 1785169181631,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\hooks\\useProvider.js",
+      "accessCount": 3,
+      "lastAccessed": 1785173757102,
+      "type": "file"
+    },
+    {
+      "path": "src\\stores\\pinia\\models.js",
+      "accessCount": 2,
+      "lastAccessed": 1785167694690,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\index.html",
+      "accessCount": 2,
+      "lastAccessed": 1785168136102,
+      "type": "file"
+    },
+    {
+      "path": "tailwind.config.js",
+      "accessCount": 2,
+      "lastAccessed": 1785168317232,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\utils\\request.js",
+      "accessCount": 2,
+      "lastAccessed": 1785168367253,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\utils\\constants.js",
+      "accessCount": 2,
+      "lastAccessed": 1785168485893,
+      "type": "file"
+    },
+    {
+      "path": "electron.vite.config.mjs",
+      "accessCount": 2,
+      "lastAccessed": 1785170803255,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\api\\video.js",
+      "accessCount": 2,
+      "lastAccessed": 1785170891805,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\api\\image.js",
+      "accessCount": 2,
+      "lastAccessed": 1785170898022,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\api\\model.js",
+      "accessCount": 2,
+      "lastAccessed": 1785170900631,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\hooks\\useApiConfig.js",
+      "accessCount": 2,
+      "lastAccessed": 1785170904950,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\hooks\\useWorkflowOrchestrator.js",
+      "accessCount": 2,
+      "lastAccessed": 1785170911835,
+      "type": "file"
+    },
+    {
+      "path": "src\\preload\\index.js",
+      "accessCount": 2,
+      "lastAccessed": 1785171575607,
+      "type": "file"
+    },
+    {
+      "path": ".Claude.md",
+      "accessCount": 1,
+      "lastAccessed": 1785164913930,
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "accessCount": 1,
+      "lastAccessed": 1785164919689,
+      "type": "file"
+    },
+    {
+      "path": "workflow.md",
+      "accessCount": 1,
+      "lastAccessed": 1785164939511,
+      "type": "file"
+    },
+    {
+      "path": "src\\hooks\\useWorkflowOrchestrator.js",
+      "accessCount": 1,
+      "lastAccessed": 1785164946151,
+      "type": "file"
+    },
+    {
+      "path": "src\\stores\\canvas.js",
+      "accessCount": 1,
+      "lastAccessed": 1785164946201,
+      "type": "file"
+    },
+    {
+      "path": "index.html",
+      "accessCount": 1,
+      "lastAccessed": 1785167441811,
+      "type": "file"
+    },
+    {
+      "path": "src\\main.js",
+      "accessCount": 1,
+      "lastAccessed": 1785167441879,
+      "type": "file"
+    },
+    {
+      "path": "src\\router\\index.js",
+      "accessCount": 1,
+      "lastAccessed": 1785167468647,
+      "type": "file"
+    },
+    {
+      "path": "src\\api\\index.js",
+      "accessCount": 1,
+      "lastAccessed": 1785167562439,
+      "type": "file"
+    },
+    {
+      "path": "src\\api\\chat.js",
+      "accessCount": 1,
+      "lastAccessed": 1785167562492,
+      "type": "file"
+    },
+    {
+      "path": "src\\api\\video.js",
+      "accessCount": 1,
+      "lastAccessed": 1785167577503,
+      "type": "file"
+    },
+    {
+      "path": "src\\api\\model.js",
+      "accessCount": 1,
+      "lastAccessed": 1785167577526,
+      "type": "file"
+    },
+    {
+      "path": "src\\api\\image.js",
+      "accessCount": 1,
+      "lastAccessed": 1785167577538,
+      "type": "file"
+    },
+    {
+      "path": "src\\utils\\constants.js",
+      "accessCount": 1,
+      "lastAccessed": 1785167631996,
+      "type": "file"
+    },
+    {
+      "path": "src\\hooks\\useProvider.js",
+      "accessCount": 1,
+      "lastAccessed": 1785167654256,
+      "type": "file"
+    },
+    {
+      "path": "src\\hooks\\useApi.js",
+      "accessCount": 1,
+      "lastAccessed": 1785167654313,
+      "type": "file"
+    },
+    {
+      "path": "electron.vite.config.js",
+      "accessCount": 1,
+      "lastAccessed": 1785168241158,
+      "type": "file"
+    },
+    {
+      "path": "postcss.config.js",
+      "accessCount": 1,
+      "lastAccessed": 1785168304038,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src",
+      "accessCount": 1,
+      "lastAccessed": 1785169234877,
+      "type": "directory"
+    }
+  ],
+  "userDirectives": []
+}

@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"cd D:/code_project/huobao-canvas && git rm vite.config.js && echo \\\"removed vite.config.js\\\"\",\"description\":\"删除旧 vite.config.js\"}",
+  "error": "Exit code 1\nerror: the following file has local modifications:\n    vite.config.js\n(use --cached to keep the file, or -f to force removal)",
+  "timestamp": "2026-07-27T16:04:43.472Z",
+  "retry_count": 1
+}
