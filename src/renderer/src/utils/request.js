@@ -41,7 +41,7 @@ export const request = async (config = {}) => {
   const { url = '', method = 'get', data, params, headers = {} } = config
 
   if (!window.api?.httpRequest) {
-    const msg = '当前环境不支持网络请求（需在 Electron 中运行）'
+    const msg = '网络请求错误'
     window.$message?.error(msg)
     return Promise.reject(new Error(msg))
   }
@@ -56,6 +56,10 @@ export const request = async (config = {}) => {
     finalHeaders['Authorization'] = `Bearer ${apiKey}`
   }
 
+  console.log(
+    `[request] request before: ${method.toUpperCase()} ${finalUrl} -> ${JSON.stringify(data)} -> ${JSON.stringify(params)}`
+  )
+
   const res = await window.api.httpRequest({
     method,
     url: finalUrl,
@@ -66,7 +70,7 @@ export const request = async (config = {}) => {
 
   console.log(`[request] result: ${method.toUpperCase()} ${finalUrl} -> ${res.status}`, res.data)
   // 成功
-  if (res.ok) {
+  if (res.ok && res.status >= 200 && res.status < 300) {
     return res.data
   }
 

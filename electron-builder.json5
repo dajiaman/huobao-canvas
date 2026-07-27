@@ -17,7 +17,7 @@
     artifactName: '${name}-${version}-setup.${ext}',
     shortcutName: '${productName}',
     uninstallDisplayName: '${productName}',
-    createDesktopShortcut: 'always'
+    createDesktopShortcut: 'always',
   },
   win: {
     icon: 'build/icon.ico',

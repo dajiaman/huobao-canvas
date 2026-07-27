@@ -158,6 +158,12 @@
       "type": "file"
     },
     {
+      "path": "src\\renderer\\src\\hooks\\useApi.js",
+      "accessCount": 6,
+      "lastAccessed": 1785184424799,
+      "type": "directory"
+    },
+    {
       "path": "src\\renderer\\src\\hooks\\useModelConfig.js",
       "accessCount": 5,
       "lastAccessed": 1785170909283,
@@ -176,10 +182,16 @@
       "type": "file"
     },
     {
-      "path": "src\\renderer\\src\\hooks\\useApi.js",
+      "path": "src\\renderer\\src\\config\\models.js",
       "accessCount": 5,
-      "lastAccessed": 1785173882913,
+      "lastAccessed": 1785184329769,
       "type": "directory"
+    },
+    {
+      "path": "src\\renderer\\src\\utils\\request.js",
+      "accessCount": 5,
+      "lastAccessed": 1785184552238,
+      "type": "file"
     },
     {
       "path": "CLAUDE.md",
@@ -198,12 +210,6 @@
       "accessCount": 4,
       "lastAccessed": 1785173794695,
       "type": "file"
-    },
-    {
-      "path": "src\\renderer\\src\\config\\models.js",
-      "accessCount": 4,
-      "lastAccessed": 1785173848275,
-      "type": "directory"
     },
     {
       "path": "src\\renderer",
@@ -254,6 +260,18 @@
       "type": "file"
     },
     {
+      "path": "src\\renderer\\src\\api\\model.js",
+      "accessCount": 3,
+      "lastAccessed": 1785184329827,
+      "type": "file"
+    },
+    {
+      "path": "src\\renderer\\src\\api\\image.js",
+      "accessCount": 3,
+      "lastAccessed": 1785184371254,
+      "type": "file"
+    },
+    {
       "path": "src\\stores\\pinia\\models.js",
       "accessCount": 2,
       "lastAccessed": 1785167694690,
@@ -272,12 +290,6 @@
       "type": "file"
     },
     {
-      "path": "src\\renderer\\src\\utils\\request.js",
-      "accessCount": 2,
-      "lastAccessed": 1785168367253,
-      "type": "file"
-    },
-    {
       "path": "src\\renderer\\src\\utils\\constants.js",
       "accessCount": 2,
       "lastAccessed": 1785168485893,
@@ -293,18 +305,6 @@
       "path": "src\\renderer\\src\\api\\video.js",
       "accessCount": 2,
       "lastAccessed": 1785170891805,
-      "type": "file"
-    },
-    {
-      "path": "src\\renderer\\src\\api\\image.js",
-      "accessCount": 2,
-      "lastAccessed": 1785170898022,
-      "type": "file"
-    },
-    {
-      "path": "src\\renderer\\src\\api\\model.js",
-      "accessCount": 2,
-      "lastAccessed": 1785170900631,
       "type": "file"
     },
     {

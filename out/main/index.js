@@ -2,7 +2,7 @@
 const electron = require("electron");
 const path = require("path");
 require("url");
-const log = require("electron-log/main");
+const log = require("electron-log");
 const utils = require("@electron-toolkit/utils");
 log.initialize();
 log.transports.console.level = utils.is.dev ? "debug" : "info";
@@ -24,7 +24,6 @@ function resolveUrl(url, params) {
 }
 function registerHttpHandlers() {
   electron.ipcMain.handle("http:request", async (_event, options = {}) => {
-    log.info(`[http:request] ${options.method || "GET"} ${options.url}}`);
     const { method = "GET", url = "", headers = {}, data, params } = options;
     try {
       const finalUrl = resolveUrl(url, params);

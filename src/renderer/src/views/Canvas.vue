@@ -4,35 +4,32 @@
     <!-- Header | 顶部导航 -->
     <AppHeader class="bg-[var(--bg-secondary)]">
       <template #left>
-        <button 
-          @click="goBack"
-          class="p-2 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors"
-        >
-          <n-icon :size="20"><ChevronBackOutline /></n-icon>
+        <button @click="goBack" class="p-2 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors">
+          <n-icon :size="20">
+            <ChevronBackOutline />
+          </n-icon>
         </button>
         <n-dropdown :options="projectOptions" @select="handleProjectAction">
           <button class="flex items-center gap-1 hover:bg-[var(--bg-tertiary)] px-2 py-1 rounded-lg transition-colors">
             <span class="font-medium">{{ projectName }}</span>
-            <n-icon :size="16"><ChevronDownOutline /></n-icon>
+            <n-icon :size="16">
+              <ChevronDownOutline />
+            </n-icon>
           </button>
         </n-dropdown>
       </template>
       <template #right>
-        <button 
-          @click="showDownloadModal = true"
-          class="p-2 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors"
-          :class="{ 'text-[var(--accent-color)]': hasDownloadableAssets }"
-          title="批量下载素材"
-        >
-          <n-icon :size="20"><DownloadOutline /></n-icon>
+        <button @click="showDownloadModal = true" class="p-2 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors"
+          :class="{ 'text-[var(--accent-color)]': hasDownloadableAssets }" title="批量下载素材">
+          <n-icon :size="20">
+            <DownloadOutline />
+          </n-icon>
         </button>
-        <button 
-          @click="showApiSettings = true"
-          class="p-2 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors"
-          :class="{ 'text-[var(--accent-color)]': isApiConfigured }"
-          title="API 设置"
-        >
-          <n-icon :size="20"><SettingsOutline /></n-icon>
+        <button @click="showApiSettings = true" class="p-2 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors"
+          :class="{ 'text-[var(--accent-color)]': isApiConfigured }" title="API 设置">
+          <n-icon :size="20">
+            <SettingsOutline />
+          </n-icon>
         </button>
       </template>
     </AppHeader>
@@ -40,103 +37,82 @@
     <!-- Main canvas area | 主画布区域 -->
     <div class="flex-1 relative overflow-hidden">
       <!-- Vue Flow canvas | Vue Flow 画布 -->
-      <VueFlow
-        :key="flowKey"
-        v-model:nodes="nodes"
-        v-model:edges="edges"
-        v-model:viewport="viewport"
-        :node-types="nodeTypes"
-        :edge-types="edgeTypes"
-        :default-viewport="canvasViewport"
-        :min-zoom="0.1"
-        :max-zoom="2"
-        :snap-to-grid="true"
-        :snap-grid="[20, 20]"
-        @connect="onConnect"
-        @node-click="onNodeClick"
-        @pane-click="onPaneClick"
-        @viewport-change="handleViewportChange"
-        @edges-change="onEdgesChange"
-        class="canvas-flow"
-      >
+      <VueFlow :key="flowKey" v-model:nodes="nodes" v-model:edges="edges" v-model:viewport="viewport"
+        :node-types="nodeTypes" :edge-types="edgeTypes" :default-viewport="canvasViewport" :min-zoom="0.1" :max-zoom="2"
+        :snap-to-grid="true" :snap-grid="[20, 20]" @connect="onConnect" @node-click="onNodeClick"
+        @pane-click="onPaneClick" @viewport-change="handleViewportChange" @edges-change="onEdgesChange"
+        class="canvas-flow">
         <Background v-if="showGrid" :gap="20" :size="1" />
-        <MiniMap 
-          v-if="!isMobile"
-          position="bottom-right"
-          :pannable="true"
-          :zoomable="true"
-        />
+        <MiniMap v-if="!isMobile" position="bottom-right" :pannable="true" :zoomable="true" />
       </VueFlow>
 
       <!-- Left toolbar | 左侧工具栏 -->
-      <aside class="absolute left-4 top-1/2 -translate-y-1/2 flex flex-col gap-1 p-2 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-color)] shadow-lg z-10">
-        <button 
-          @click="showNodeMenu = !showNodeMenu"
+      <aside
+        class="absolute left-4 top-1/2 -translate-y-1/2 flex flex-col gap-1 p-2 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-color)] shadow-lg z-10">
+        <button @click="showNodeMenu = !showNodeMenu"
           class="w-10 h-10 flex items-center justify-center rounded-xl bg-[var(--accent-color)] text-white hover:bg-[var(--accent-hover)] transition-colors"
-          title="添加节点"
-        >
-          <n-icon :size="20"><AddOutline /></n-icon>
+          title="添加节点">
+          <n-icon :size="20">
+            <AddOutline />
+          </n-icon>
         </button>
-        <button 
-          @click="showWorkflowPanel = true"
+        <button @click="showWorkflowPanel = true"
           class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-[var(--bg-tertiary)] transition-colors"
-          title="工作流模板"
-        >
-          <n-icon :size="20"><AppsOutline /></n-icon>
+          title="工作流模板">
+          <n-icon :size="20">
+            <AppsOutline />
+          </n-icon>
         </button>
         <div class="w-full h-px bg-[var(--border-color)] my-1"></div>
-        <button 
-          v-for="tool in tools" 
-          :key="tool.id"
-          @click="tool.action"
-          :disabled="tool.disabled && tool.disabled()"
+        <button v-for="tool in tools" :key="tool.id" @click="tool.action" :disabled="tool.disabled && tool.disabled()"
           class="w-10 h-10 flex items-center justify-center rounded-lg hover:bg-[var(--bg-tertiary)] transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
-          :title="tool.name"
-        >
-          <n-icon :size="20"><component :is="tool.icon" /></n-icon>
+          :title="tool.name">
+          <n-icon :size="20">
+            <component :is="tool.icon" />
+          </n-icon>
         </button>
       </aside>
 
       <!-- Node menu popup | 节点菜单弹窗 -->
-      <div 
-        v-if="showNodeMenu"
-        class="absolute left-20 top-1/2 -translate-y-1/2 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-color)] shadow-lg p-2 z-20"
-      >
-        <button 
-          v-for="nodeType in nodeTypeOptions" 
-          :key="nodeType.type"
-          @click="addNewNode(nodeType.type)"
-          class="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[var(--bg-tertiary)] transition-colors text-left"
-        >
-          <n-icon :size="20" :color="nodeType.color"><component :is="nodeType.icon" /></n-icon>
+      <div v-if="showNodeMenu"
+        class="absolute left-20 top-1/2 -translate-y-1/2 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-color)] shadow-lg p-2 z-20">
+        <button v-for="nodeType in nodeTypeOptions" :key="nodeType.type" @click="addNewNode(nodeType.type)"
+          class="w-full flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[var(--bg-tertiary)] transition-colors text-left">
+          <n-icon :size="20" :color="nodeType.color">
+            <component :is="nodeType.icon" />
+          </n-icon>
           <span class="text-sm">{{ nodeType.name }}</span>
         </button>
       </div>
 
       <!-- Bottom controls | 底部控制 -->
-      <div class="absolute bottom-4 left-4 flex items-center gap-2 bg-[var(--bg-secondary)] rounded-lg border border-[var(--border-color)] p-1">
-        <!-- <button 
-          @click="showGrid = !showGrid" 
+      <div
+        class="absolute bottom-4 left-4 flex items-center gap-2 bg-[var(--bg-secondary)] rounded-lg border border-[var(--border-color)] p-1">
+        <!-- <button
+          @click="showGrid = !showGrid"
           :class="showGrid ? 'bg-[var(--accent-color)] text-white' : 'hover:bg-[var(--bg-tertiary)]'"
           class="p-2 rounded transition-colors"
           title="切换网格"
         >
           <n-icon :size="16"><GridOutline /></n-icon>
         </button> -->
-        <button 
-          @click="fitView({ padding: 0.2 })" 
-          class="p-2 hover:bg-[var(--bg-tertiary)] rounded transition-colors"
-          title="适应视图"
-        >
-          <n-icon :size="16"><LocateOutline /></n-icon>
+        <button @click="fitView({ padding: 0.2 })" class="p-2 hover:bg-[var(--bg-tertiary)] rounded transition-colors"
+          title="适应视图">
+          <n-icon :size="16">
+            <LocateOutline />
+          </n-icon>
         </button>
         <div class="flex items-center gap-1 px-2">
           <button @click="zoomOut" class="p-1 hover:bg-[var(--bg-tertiary)] rounded transition-colors">
-            <n-icon :size="14"><RemoveOutline /></n-icon>
+            <n-icon :size="14">
+              <RemoveOutline />
+            </n-icon>
           </button>
           <span class="text-xs min-w-[40px] text-center">{{ Math.round(viewport.zoom * 100) }}%</span>
           <button @click="zoomIn" class="p-1 hover:bg-[var(--bg-tertiary)] rounded transition-colors">
-            <n-icon :size="14"><AddOutline /></n-icon>
+            <n-icon :size="14">
+              <AddOutline />
+            </n-icon>
           </button>
         </div>
       </div>
@@ -144,10 +120,8 @@
       <!-- Bottom input panel (floating) | 底部输入面板（悬浮） -->
       <div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-full max-w-2xl px-4 z-20">
         <!-- Processing indicator | 处理中指示器 -->
-        <div 
-          v-if="isProcessing" 
-          class="mb-3 p-3 bg-[var(--bg-primary)] rounded-xl border border-[var(--accent-color)] animate-pulse"
-        >
+        <div v-if="isProcessing"
+          class="mb-3 p-3 bg-[var(--bg-primary)] rounded-xl border border-[var(--accent-color)] animate-pulse">
           <div class="flex items-center gap-2 text-sm text-[var(--accent-color)] mb-2">
             <n-spin :size="14" />
             <span>正在生成提示词...</span>
@@ -158,23 +132,14 @@
         </div>
 
         <div class="bg-[var(--bg-primary)] rounded-xl border border-[var(--border-color)] p-3">
-          <textarea
-            v-model="chatInput"
-            :placeholder="inputPlaceholder"
-            :disabled="isProcessing"
+          <textarea v-model="chatInput" :placeholder="inputPlaceholder" :disabled="isProcessing"
             class="w-full bg-transparent resize-none outline-none text-[var(--text-primary)] placeholder:text-[var(--text-secondary)] min-h-[40px] max-h-[120px] disabled:opacity-50"
-            rows="1"
-            @keydown.enter.exact="handleEnterKey"
-            @keydown.enter.ctrl="sendMessage"
-          />
+            rows="1" @keydown.enter.exact="handleEnterKey" @keydown.enter.ctrl="sendMessage" />
           <div class="flex items-center justify-between mt-2">
             <div class="flex items-center gap-2">
-              <button 
-                @click="handlePolish"
-                :disabled="isProcessing || !chatInput.trim()"
+              <button @click="handlePolish" :disabled="isProcessing || !chatInput.trim()"
                 class="px-3 py-1.5 text-xs rounded-lg bg-[var(--bg-secondary)] hover:bg-[var(--bg-tertiary)] border border-[var(--border-color)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                title="AI 润色提示词"
-              >
+                title="AI 润色提示词">
                 ✨ AI 润色
               </button>
             </div>
@@ -183,31 +148,29 @@
                 <n-switch v-model:value="autoExecute" size="small" />
                 自动执行
               </label>
-              <button 
-                @click="sendMessage"
-                :disabled="isProcessing"
-                class="w-8 h-8 rounded-xl bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] flex items-center justify-center transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-              >
+              <button @click="sendMessage" :disabled="isProcessing"
+                class="w-8 h-8 rounded-xl bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] flex items-center justify-center transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
                 <n-spin v-if="isProcessing" :size="16" />
-                <n-icon v-else :size="20" color="white"><SendOutline /></n-icon>
+                <n-icon v-else :size="20" color="white">
+                  <SendOutline />
+                </n-icon>
               </button>
             </div>
           </div>
         </div>
-        
+
         <!-- Quick suggestions | 快捷建议 -->
         <div class="flex flex-wrap items-center justify-center gap-2 mt-2">
           <span class="text-xs text-[var(--text-secondary)]">推荐：</span>
-          <button 
-            v-for="tag in suggestions" 
-            :key="tag"
-            @click="chatInput = tag"
-            class="px-2 py-0.5 text-xs rounded-full bg-[var(--bg-secondary)]/80 border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-colors"
-          >
+          <button v-for="tag in suggestions" :key="tag" @click="chatInput = tag"
+            class="px-2 py-0.5 text-xs rounded-full bg-[var(--bg-secondary)]/80 border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-colors">
             {{ tag }}
           </button>
-          <button class="p-1 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors">
-            <n-icon :size="14"><RefreshOutline /></n-icon>
+          <button class="p-1 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors"
+            @click="handleRefreshSuggestion">
+            <n-icon :size="14">
+              <RefreshOutline />
+            </n-icon>
           </button>
         </div>
       </div>
@@ -252,8 +215,17 @@ import { useRouter, useRoute } from 'vue-router'
 import { VueFlow, useVueFlow } from '@vue-flow/core'
 import { Background } from '@vue-flow/background'
 import { MiniMap } from '@vue-flow/minimap'
-import { NIcon, NSwitch, NDropdown, NMessageProvider, NSpin, NModal, NInput, NButton } from 'naive-ui'
-import { 
+import {
+  NIcon,
+  NSwitch,
+  NDropdown,
+  NMessageProvider,
+  NSpin,
+  NModal,
+  NInput,
+  NButton
+} from 'naive-ui'
+import {
   ChevronBackOutline,
   ChevronDownOutline,
   SettingsOutline,
@@ -274,11 +246,38 @@ import {
   AppsOutline,
   ChatbubbleOutline
 } from '@vicons/ionicons5'
-import { nodes, edges, addNode, addNodes, addEdge, addEdges, updateNode, initSampleData, loadProject, saveProject, clearCanvas, canvasViewport, updateViewport, undo, redo, canUndo, canRedo, manualSaveHistory, startBatchOperation, endBatchOperation } from '../stores/canvas'
+import {
+  nodes,
+  edges,
+  addNode,
+  addNodes,
+  addEdge,
+  addEdges,
+  updateNode,
+  initSampleData,
+  loadProject,
+  saveProject,
+  clearCanvas,
+  canvasViewport,
+  updateViewport,
+  undo,
+  redo,
+  canUndo,
+  canRedo,
+  manualSaveHistory,
+  startBatchOperation,
+  endBatchOperation
+} from '../stores/canvas'
 import { loadAllModels } from '../stores/models'
 import { useChat, useWorkflowOrchestrator } from '../hooks'
 import { useModelStore } from '../stores/pinia'
-import { projects, initProjectsStore, updateProject, renameProject, currentProject } from '../stores/projects'
+import {
+  projects,
+  initProjectsStore,
+  updateProject,
+  renameProject,
+  currentProject
+} from '../stores/projects'
 
 // API Settings component | API 设置组件
 import ApiSettings from '../components/ApiSettings.vue'
@@ -299,12 +298,14 @@ onMounted(() => {
 const CHAT_TEMPLATES = {
   imagePrompt: {
     name: '生图提示词',
-    systemPrompt: '你是一个专业的AI绘画提示词专家。将用户输入的内容美化成高质量的生图提示词，包含风格、光线、構图、细节等要素。直接返回提示词，不要其他解释。',
+    systemPrompt:
+      '你是一个专业的AI绘画提示词专家。将用户输入的内容美化成高质量的生图提示词，包含风格、光线、構图、细节等要素。直接返回提示词，不要其他解释。',
     model: 'gpt-4o-mini'
   },
   videoPrompt: {
     name: '视频提示词',
-    systemPrompt: '你是一个专业的AI视频提示词专家。将用户输入的内容美化成高质量的视频生成提示词，包含运动、场景、镜头等要素。直接返回提示词，不要其他解释。',
+    systemPrompt:
+      '你是一个专业的AI视频提示词专家。将用户输入的内容美化成高质量的视频生成提示词，包含运动、场景、镜头等要素。直接返回提示词，不要其他解释。',
     model: 'gpt-4o-mini'
   }
 }
@@ -313,11 +314,11 @@ const CHAT_TEMPLATES = {
 const currentTemplate = ref('imagePrompt')
 
 // Chat hook with image prompt template | 问答 hook
-const { 
-  loading: chatLoading, 
-  status: chatStatus, 
-  currentResponse, 
-  send: sendChat 
+const {
+  loading: chatLoading,
+  status: chatStatus,
+  currentResponse,
+  send: sendChat
 } = useChat({
   systemPrompt: CHAT_TEMPLATES.imagePrompt.systemPrompt,
   model: CHAT_TEMPLATES.imagePrompt.model
@@ -347,6 +348,7 @@ import LLMConfigNode from '../components/nodes/LLMConfigNode.vue'
 import ImageRoleEdge from '../components/edges/ImageRoleEdge.vue'
 import PromptOrderEdge from '../components/edges/PromptOrderEdge.vue'
 import ImageOrderEdge from '../components/edges/ImageOrderEdge.vue'
+import { getRandomSuggestion } from '../constants/suggestion'
 
 const router = useRouter()
 const route = useRoute()
@@ -392,15 +394,12 @@ const renameValue = ref('')
 
 // Check if has downloadable assets | 检查是否有可下载素材
 const hasDownloadableAssets = computed(() => {
-  return nodes.value.some(n => 
-    (n.type === 'image' || n.type === 'video') && n.data?.url
-  )
+  return nodes.value.some((n) => (n.type === 'image' || n.type === 'video') && n.data?.url)
 })
-
 
 // Project info | 项目信息
 const projectName = computed(() => {
-  const project = projects.value.find(p => p.id === route.params.id)
+  const project = projects.value.find((p) => p.id === route.params.id)
   return project?.name || '未命名项目'
 })
 
@@ -415,10 +414,32 @@ const projectOptions = [
 const tools = [
   { id: 'text', name: '文本', icon: TextOutline, action: () => addNewNode('text') },
   { id: 'image', name: '图片', icon: ImageOutline, action: () => addNewNode('image') },
-  { id: 'imageConfig', name: '文生图', icon: ColorPaletteOutline, action: () => addNewNode('imageConfig') },
-  { id: 'videoConfig', name: '视频生成', icon: VideocamOutline, action: () => addNewNode('videoConfig') },
-  { id: 'undo', name: '撤销', icon: ArrowUndoOutline, action: () => undo(), disabled: () => !canUndo() },
-  { id: 'redo', name: '重做', icon: ArrowRedoOutline, action: () => redo(), disabled: () => !canRedo() }
+  {
+    id: 'imageConfig',
+    name: '文生图',
+    icon: ColorPaletteOutline,
+    action: () => addNewNode('imageConfig')
+  },
+  {
+    id: 'videoConfig',
+    name: '视频生成',
+    icon: VideocamOutline,
+    action: () => addNewNode('videoConfig')
+  },
+  {
+    id: 'undo',
+    name: '撤销',
+    icon: ArrowUndoOutline,
+    action: () => undo(),
+    disabled: () => !canUndo()
+  },
+  {
+    id: 'redo',
+    name: '重做',
+    icon: ArrowRedoOutline,
+    action: () => redo(),
+    disabled: () => !canRedo()
+  }
 ]
 
 // Node type options for menu | 节点类型菜单选项
@@ -435,39 +456,43 @@ const nodeTypeOptions = [
 const inputPlaceholder = '你可以试着说"帮我生成一个二次元的卡通角色"'
 
 // Quick suggestions | 快捷建议
-const suggestions = [
-  '像个魔法森林',
-  '三只不同的小猫',
-  '生成多角度分镜',
-  '夏日田野环绕漫步'
-]
+const suggestions = ref(getRandomSuggestion())
+
+// Refresh suggestion state | 刷新建议词
+const handleRefreshSuggestion = () => {
+  suggestions.value = getRandomSuggestion()
+}
 
 // Add new node | 添加新节点
 const addNewNode = async (type) => {
   // Calculate viewport center position | 计算视口中心位置
-  const viewportCenterX = -viewport.value.x / viewport.value.zoom + (window.innerWidth / 2) / viewport.value.zoom
-  const viewportCenterY = -viewport.value.y / viewport.value.zoom + (window.innerHeight / 2) / viewport.value.zoom
-  
+  const viewportCenterX =
+    -viewport.value.x / viewport.value.zoom + window.innerWidth / 2 / viewport.value.zoom
+  const viewportCenterY =
+    -viewport.value.y / viewport.value.zoom + window.innerHeight / 2 / viewport.value.zoom
+
   // Add node at viewport center | 在视口中心添加节点
   const nodeId = addNode(type, { x: viewportCenterX - 100, y: viewportCenterY - 100 })
-  
+
   // Set highest z-index | 设置最高层级
-  const maxZIndex = Math.max(0, ...nodes.value.map(n => n.zIndex || 0))
+  const maxZIndex = Math.max(0, ...nodes.value.map((n) => n.zIndex || 0))
   updateNode(nodeId, { zIndex: maxZIndex + 1 })
-  
+
   // Force Vue Flow to recalculate node dimensions | 强制 Vue Flow 重新计算节点尺寸
   setTimeout(() => {
     updateNodeInternals(nodeId)
   }, 50)
-  
+
   showNodeMenu.value = false
 }
 
 // Handle add workflow from panel | 处理从面板添加工作流
 const handleAddWorkflow = ({ workflow, options }) => {
   // Calculate viewport center position | 计算视口中心位置
-  const viewportCenterX = -viewport.value.x / viewport.value.zoom + (window.innerWidth / 2) / viewport.value.zoom
-  const viewportCenterY = -viewport.value.y / viewport.value.zoom + (window.innerHeight / 2) / viewport.value.zoom
+  const viewportCenterX =
+    -viewport.value.x / viewport.value.zoom + window.innerWidth / 2 / viewport.value.zoom
+  const viewportCenterY =
+    -viewport.value.y / viewport.value.zoom + window.innerHeight / 2 / viewport.value.zoom
 
   // Create nodes from workflow template | 从工作流模板创建节点
   const startPosition = { x: viewportCenterX - 300, y: viewportCenterY - 200 }
@@ -477,7 +502,7 @@ const handleAddWorkflow = ({ workflow, options }) => {
   startBatchOperation()
 
   // Add nodes to canvas in batch | 批量将节点添加到画布
-  const nodeSpecs = newNodes.map(node => ({
+  const nodeSpecs = newNodes.map((node) => ({
     type: node.type,
     position: node.position,
     data: node.data
@@ -491,7 +516,7 @@ const handleAddWorkflow = ({ workflow, options }) => {
   })
 
   // Add edges to canvas in batch | 批量将边添加到画布
-  const edgeSpecs = newEdges.map(edge => ({
+  const edgeSpecs = newEdges.map((edge) => ({
     source: idMap[edge.source] || edge.source,
     target: idMap[edge.target] || edge.target,
     sourceHandle: edge.sourceHandle || 'right',
@@ -509,7 +534,7 @@ const handleAddWorkflow = ({ workflow, options }) => {
   // Delay node internals update | 延迟节点内部更新
   setTimeout(() => {
     // Update node internals | 更新节点内部
-    nodeIds.forEach(nodeId => {
+    nodeIds.forEach((nodeId) => {
       updateNodeInternals(nodeId)
     })
   }, 100)
@@ -520,9 +545,9 @@ const handleAddWorkflow = ({ workflow, options }) => {
 // Handle connection | 处理连接
 const onConnect = (params) => {
   // Check connection types | 检查连接类型
-  const sourceNode = nodes.value.find(n => n.id === params.source)
-  const targetNode = nodes.value.find(n => n.id === params.target)
-  
+  const sourceNode = nodes.value.find((n) => n.id === params.source)
+  const targetNode = nodes.value.find((n) => n.id === params.target)
+
   if (sourceNode?.type === 'image' && targetNode?.type === 'videoConfig') {
     // Use imageRole edge type | 使用图片角色边类型
     addEdge({
@@ -533,11 +558,11 @@ const onConnect = (params) => {
   } else if (sourceNode?.type === 'text' && targetNode?.type === 'imageConfig') {
     // Use promptOrder edge type | 使用提示词顺序边类型
     // Calculate next order number | 计算下一个顺序号
-    const existingTextEdges = edges.value.filter(e => 
-      e.target === params.target && e.type === 'promptOrder'
+    const existingTextEdges = edges.value.filter(
+      (e) => e.target === params.target && e.type === 'promptOrder'
     )
     const nextOrder = existingTextEdges.length + 1
-    
+
     addEdge({
       ...params,
       type: 'promptOrder',
@@ -546,22 +571,22 @@ const onConnect = (params) => {
   } else if (sourceNode?.type === 'image' && targetNode?.type === 'imageConfig') {
     // Use imageOrder edge type | 使用图片顺序边类型
     // Calculate next order number | 计算下一个顺序号
-    const existingImageEdges = edges.value.filter(e =>
-      e.target === params.target && e.type === 'imageOrder'
+    const existingImageEdges = edges.value.filter(
+      (e) => e.target === params.target && e.type === 'imageOrder'
     )
 
     // Get @ mentioned image count from connected TextNodes | 获取已连接 TextNode 中 @ 提及的图片数量
     let mentionedImageCount = 0
-    const connectedTextEdges = edges.value.filter(e => e.target === params.target)
+    const connectedTextEdges = edges.value.filter((e) => e.target === params.target)
     for (const edge of connectedTextEdges) {
-      const sourceNode = nodes.value.find(n => n.id === edge.source)
+      const sourceNode = nodes.value.find((n) => n.id === edge.source)
       if (sourceNode?.type === 'text') {
         const content = sourceNode.data?.content || ''
         // Count @ mentions of image nodes | 统计图片节点的 @ 提及
         const mentionRegex = /@\[([^\]|]+)(?:\|([^\]]+))?\]/g
         let match
         while ((match = mentionRegex.exec(content)) !== null) {
-          const mentionedNode = nodes.value.find(n => n.id === match[1])
+          const mentionedNode = nodes.value.find((n) => n.id === match[1])
           if (mentionedNode?.type === 'image') {
             mentionedImageCount++
           }
@@ -579,8 +604,8 @@ const onConnect = (params) => {
     })
   } else if (sourceNode?.type === 'llmConfig' && targetNode?.type === 'imageConfig') {
     // LLM output as prompt for image generation | LLM 输出作为图片生成提示词
-    const existingTextEdges = edges.value.filter(e =>
-      e.target === params.target && e.type === 'promptOrder'
+    const existingTextEdges = edges.value.filter(
+      (e) => e.target === params.target && e.type === 'promptOrder'
     )
     const nextOrder = existingTextEdges.length + 1
 
@@ -604,7 +629,6 @@ const onNodeClick = (event) => {
   // nodes.value.forEach(node => {
   //   updateNode(node.id, { selected: false })
   // })
-  
   // // Select clicked node | 选中的节点
   // const clickedNode = nodes.value.find(n => n.id === event.node.id)
   // if (clickedNode) {
@@ -620,8 +644,8 @@ const handleViewportChange = (newViewport) => {
 // Handle edges change | 处理边变化
 const onEdgesChange = (changes) => {
   // Check if any edge is being removed | 检查是否有边被删除
-  const hasRemoval = changes.some(change => change.type === 'remove')
-  
+  const hasRemoval = changes.some((change) => change.type === 'remove')
+
   if (hasRemoval) {
     // Trigger history save after edge removal | 边删除后触发历史保存
     nextTick(() => {
@@ -686,7 +710,7 @@ const handleEnterKey = (e) => {
 const handlePolish = async () => {
   const input = chatInput.value.trim()
   if (!input) return
-  
+
   // Check API configuration | 检查 API 配置
   if (!isApiConfigured.value) {
     window.$message?.warning('请先配置 API Key')
@@ -700,7 +724,7 @@ const handlePolish = async () => {
   try {
     // Call chat API to polish the prompt | 调用 AI 润色提示词
     const result = await sendChat(input, true)
-    
+
     if (result) {
       chatInput.value = result
       window.$message?.success('提示词已润色')
@@ -733,7 +757,7 @@ const sendMessage = async () => {
     // Calculate position to avoid overlap | 计算位置避免重叠
     let maxY = 0
     if (nodes.value.length > 0) {
-      maxY = Math.max(...nodes.value.map(n => n.position.y))
+      maxY = Math.max(...nodes.value.map((n) => n.position.y))
     }
     const baseX = 100
     const baseY = maxY + 200
@@ -741,11 +765,11 @@ const sendMessage = async () => {
     if (autoExecute.value) {
       // Auto-execute mode: analyze intent and execute workflow | 自动执行模式：分析意图并执行工作流
       window.$message?.info('正在分析工作流...')
-      
+
       try {
         // Analyze user intent | 分析用户意图
         const result = await analyzeIntent(content)
-        
+
         // Ensure we have valid workflow params | 确保有效的工作流参数
         const workflowParams = {
           workflow_type: result?.workflow_type || WORKFLOW_TYPES.TEXT_TO_IMAGE,
@@ -754,12 +778,12 @@ const sendMessage = async () => {
           character: result?.character,
           shots: result?.shots
         }
-        
+
         window.$message?.info(`执行工作流: ${result?.description || '文生图'}`)
-        
+
         // Execute the workflow | 执行工作流
         await executeWorkflow(workflowParams, { x: baseX, y: baseY })
-        
+
         window.$message?.success('工作流已启动')
       } catch (err) {
         console.error('Workflow error:', err)
@@ -769,15 +793,23 @@ const sendMessage = async () => {
       }
     } else {
       // Manual mode: just create nodes | 手动模式：仅创建节点
-      const textNodeId = addNode('text', { x: baseX, y: baseY }, { 
-        content: content, 
-        label: '提示词' 
-      })
-      
-      const imageConfigNodeId = addNode('imageConfig', { x: baseX + 400, y: baseY }, {
-        label: '文生图'
-      })
-      
+      const textNodeId = addNode(
+        'text',
+        { x: baseX, y: baseY },
+        {
+          content: content,
+          label: '提示词'
+        }
+      )
+
+      const imageConfigNodeId = addNode(
+        'imageConfig',
+        { x: baseX + 400, y: baseY },
+        {
+          label: '文生图'
+        }
+      )
+
       addEdge({
         source: textNodeId,
         target: imageConfigNodeId,
@@ -806,7 +838,7 @@ const checkMobile = () => {
 const loadProjectById = (projectId) => {
   // Update flow key to force VueFlow re-render | 更新 key 强制 VueFlow 重新渲染
   flowKey.value = Date.now()
-  
+
   if (projectId && projectId !== 'new') {
     loadProject(projectId)
   } else {
@@ -834,13 +866,13 @@ watch(
 onMounted(() => {
   checkMobile()
   window.addEventListener('resize', checkMobile)
-  
+
   // Initialize projects store | 初始化项目存储
   initProjectsStore()
-  
+
   // Load project data | 加载项目数据
   loadProjectById(route.params.id)
-  
+
   // Check for initial prompt from home page | 检查来自首页的初始提示词
   const initialPrompt = sessionStorage.getItem('ai-canvas-initial-prompt')
   if (initialPrompt) {

@@ -55,7 +55,8 @@
               class="px-3 py-1.5 text-sm rounded-full bg-[var(--bg-secondary)] border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-colors">
               {{ tag }}
             </button>
-            <button class="p-1.5 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors">
+            <button class="p-1.5 hover:bg-[var(--bg-tertiary)] rounded-lg transition-colors"
+              @click="handleRefreshSuggestion">
               <n-icon :size="16">
                 <RefreshOutline />
               </n-icon>
@@ -219,6 +220,8 @@ const refreshApiConfig = () => {
   // 通过 computed 自动更新，不需要手动刷新
 }
 
+
+
 // Video refs for hover play | 视频引用用于悬停播放
 const videoRefs = new Map()
 
@@ -257,12 +260,13 @@ const renameValue = ref('')
 const renameTargetId = ref(null)
 
 // Suggestions tags | 建议标签
-const suggestions = [
-  '雨中魔法森林',
-  '日式街面美食摄影',
-  '瀑布水流飞溅',
-  '雨天富声旁边花语'
-]
+const suggestions = ref(getRandomSuggestion())
+
+
+// Refresh suggestion state | 刷新建议词
+const handleRefreshSuggestion = () => {
+  suggestions.value = getRandomSuggestion()
+}
 
 // Format date | 格式化日期
 const formatDate = (date) => {
@@ -382,6 +386,7 @@ const isVideoUrl = (url) => {
 
 // Import h for render functions | 导入 h 用于渲染函数
 import { h } from 'vue'
+import { getRandomSuggestion } from '../constants/suggestion'
 
 // Projects section ref | 项目区域引用
 const projectsSection = ref(null)

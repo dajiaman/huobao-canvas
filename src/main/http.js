@@ -31,8 +31,6 @@ function resolveUrl(url, params) {
 export function registerHttpHandlers() {
   // 普通请求
   ipcMain.handle('http:request', async (_event, options = {}) => {
-    log.info(`[http:request] ${options.method || 'GET'} ${options.url}}`)
-
     const { method = 'GET', url = '', headers = {}, data, params } = options
     try {
       const finalUrl = resolveUrl(url, params)

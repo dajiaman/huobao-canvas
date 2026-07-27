@@ -2,33 +2,25 @@
   <!-- Image config node wrapper | 文生图配置节点包裹层 -->
   <div class="image-config-node-wrapper" @mouseenter="showHandleMenu = true" @mouseleave="showHandleMenu = false">
     <!-- Image config node | 文生图配置节点 -->
-    <div
-      class="image-config-node bg-[var(--bg-secondary)] rounded-xl border min-w-[300px] transition-all duration-200"
+    <div class="image-config-node bg-[var(--bg-secondary)] rounded-xl border min-w-[300px] transition-all duration-200"
       :class="data.selected ? 'border-1 border-blue-500 shadow-lg shadow-blue-500/20' : 'border border-[var(--border-color)]'">
       <!-- Header | 头部 -->
       <div class="flex items-center justify-between px-3 py-2 border-b border-[var(--border-color)]">
-        <span
-          v-if="!isEditingLabel"
-          @dblclick="startEditLabel"
+        <span v-if="!isEditingLabel" @dblclick="startEditLabel"
           class="text-sm font-medium text-[var(--text-secondary)] cursor-text hover:bg-[var(--bg-tertiary)] px-1 rounded transition-colors"
-          title="双击编辑名称"
-        >{{ data.label }}</span>
-        <input
-          v-else
-          ref="labelInputRef"
-          v-model="editingLabelValue"
-          @blur="finishEditLabel"
-          @keydown.enter="finishEditLabel"
-          @keydown.escape="cancelEditLabel"
-          class="text-sm font-medium bg-[var(--bg-tertiary)] text-[var(--text-secondary)] px-1 rounded outline-none border border-blue-500"
-        />
+          title="双击编辑名称">{{ data.label }}</span>
+        <input v-else ref="labelInputRef" v-model="editingLabelValue" @blur="finishEditLabel"
+          @keydown.enter="finishEditLabel" @keydown.escape="cancelEditLabel"
+          class="text-sm font-medium bg-[var(--bg-tertiary)] text-[var(--text-secondary)] px-1 rounded outline-none border border-blue-500" />
         <div class="flex items-center gap-1">
-          <button @click="handleDuplicate" class="p-1 hover:bg-[var(--bg-tertiary)] rounded transition-colors" title="复制节点">
+          <button @click="handleDuplicate" class="p-1 hover:bg-[var(--bg-tertiary)] rounded transition-colors"
+            title="复制节点">
             <n-icon :size="14">
               <CopyOutline />
             </n-icon>
           </button>
-          <button @click="handleDelete" class="p-1 hover:bg-[var(--bg-tertiary)] rounded transition-colors" title="删除节点">
+          <button @click="handleDelete" class="p-1 hover:bg-[var(--bg-tertiary)] rounded transition-colors"
+            title="删除节点">
             <n-icon :size="14">
               <TrashOutline />
             </n-icon>
@@ -44,7 +36,9 @@
           <n-dropdown :options="modelOptions" @select="handleModelSelect">
             <button class="flex items-center gap-1 text-sm text-[var(--text-primary)] hover:text-[var(--accent-color)]">
               {{ displayModelName }}
-              <n-icon :size="12"><ChevronDownOutline /></n-icon>
+              <n-icon :size="12">
+                <ChevronDownOutline />
+              </n-icon>
             </button>
           </n-dropdown>
         </div>
@@ -55,7 +49,9 @@
           <n-dropdown :options="qualityOptions" @select="handleQualitySelect">
             <button class="flex items-center gap-1 text-sm text-[var(--text-primary)] hover:text-[var(--accent-color)]">
               {{ displayQuality }}
-              <n-icon :size="12"><ChevronForwardOutline /></n-icon>
+              <n-icon :size="12">
+                <ChevronForwardOutline />
+              </n-icon>
             </button>
           </n-dropdown>
         </div>
@@ -77,7 +73,8 @@
         </div>
 
         <!-- Model tips | 模型提示 -->
-        <div v-if="currentModelConfig?.tips" class="text-xs text-[var(--text-tertiary)] bg-[var(--bg-tertiary)] rounded px-2 py-1">
+        <div v-if="currentModelConfig?.tips"
+          class="text-xs text-[var(--text-tertiary)] bg-[var(--bg-tertiary)] rounded px-2 py-1">
           💡 {{ currentModelConfig.tips }}
         </div>
 
@@ -101,7 +98,9 @@
             class="flex-1 flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg bg-[var(--accent-color)] hover:bg-[var(--accent-hover)] text-white text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
             <n-spin v-if="loading" :size="14" />
             <template v-else>
-              <n-icon :size="14"><AddOutline /></n-icon>
+              <n-icon :size="14">
+                <AddOutline />
+              </n-icon>
               新建生成
             </template>
           </button>
@@ -110,7 +109,9 @@
             class="flex-shrink-0 flex items-center justify-center gap-1 py-2 px-2.5 rounded-lg border border-[var(--border-color)] text-[var(--text-secondary)] hover:border-[var(--accent-color)] hover:text-[var(--accent-color)] text-sm transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
             <n-spin v-if="loading" :size="14" />
             <template v-else>
-              <n-icon :size="14"><RefreshOutline /></n-icon>
+              <n-icon :size="14">
+                <RefreshOutline />
+              </n-icon>
               替换
             </template>
           </button>
@@ -134,8 +135,8 @@
         <!-- <div v-if="generatedImages.length > 0" class="mt-3 space-y-2">
         <div class="text-xs text-[var(--text-secondary)]">生成结果:</div>
         <div class="grid grid-cols-2 gap-2 max-w-[240px]">
-          <div 
-            v-for="(img, idx) in generatedImages" 
+          <div
+            v-for="(img, idx) in generatedImages"
             :key="idx"
             class="aspect-square rounded-lg overflow-hidden bg-[var(--bg-tertiary)] max-w-[110px]"
           >
@@ -147,7 +148,8 @@
 
       <!-- Handles | 连接点 -->
       <Handle type="target" :position="Position.Left" id="left" class="!bg-[var(--accent-color)]" />
-      <NodeHandleMenu :nodeId="id" nodeType="imageConfig" :visible="showHandleMenu" :operations="operations" @select="handleSelect" />
+      <NodeHandleMenu :nodeId="id" nodeType="imageConfig" :visible="showHandleMenu" :operations="operations"
+        @select="handleSelect" />
     </div>
 
   </div>
@@ -270,8 +272,7 @@ const sizeOptions = computed(() => {
 
 // Check if model has size options | 检查模型是否有尺寸选项
 const hasSizeOptions = computed(() => {
-  const config = getModelConfig(localModel.value)
-  return config?.sizes && config.sizes.length > 0
+  return sizeOptions.value && sizeOptions.value.length > 0
 })
 
 // Display size with label | 显示尺寸（带标签）
@@ -288,9 +289,33 @@ onMounted(() => {
 
   if (!localModel.value || !isModelAvailable) {
     // 使用 store 中的默认模型或第一个可用模型
-    localModel.value = modelStore.selectedImageModel || availableModels[0]?.key || DEFAULT_IMAGE_MODEL
-    updateNode(props.id, { model: localModel.value })
+    const newModel = modelStore.selectedImageModel || availableModels[0]?.key || DEFAULT_IMAGE_MODEL
+    localModel.value = newModel
   }
+
+  // 确保 quality 和 size 与当前模型匹配
+  const config = getModelConfig(localModel.value)
+  const qualityOpts = getModelQualityOptions(localModel.value)
+  if (qualityOpts.length > 0) {
+    const currentQualityValid = qualityOpts.some(o => o.key === localQuality.value)
+    if (!currentQualityValid) {
+      localQuality.value = config?.defaultParams?.quality || qualityOpts[0].key
+    }
+  }
+
+  const sizeOpts = getModelSizeOptions(localModel.value, localQuality.value)
+  if (sizeOpts.length > 0) {
+    const currentSizeValid = sizeOpts.some(o => o.key === localSize.value)
+    if (!currentSizeValid) {
+      localSize.value = config?.defaultParams?.size || sizeOpts[0].key
+    }
+  }
+
+  updateNode(props.id, {
+    model: localModel.value,
+    quality: localQuality.value,
+    size: localSize.value
+  })
 })
 
 // 解析 textNode 内容中的 @ 引用，转换为简短引用（如 图 1）并收集图片
@@ -476,41 +501,65 @@ const handleModelSelect = (key) => {
   localModel.value = key
   const config = getModelConfig(key)
 
-  // 同步 Quality 到模型默认值
-  if (config?.defaultParams?.quality) {
-    localQuality.value = config.defaultParams.quality
+  // 1. 同步 Quality
+  const newQualityOptions = getModelQualityOptions(key)
+  if (newQualityOptions.length > 0) {
+    // 优先使用模型默认值，否则使用第一个选项
+    const defaultQuality = config?.defaultParams?.quality || newQualityOptions[0].key
+    // 如果当前 quality 不在新选项中，重置为默认值
+    const currentQualityValid = newQualityOptions.some(o => o.key === localQuality.value)
+    localQuality.value = currentQualityValid ? localQuality.value : defaultQuality
+  } else {
+    // 新模型没有画质选项，重置为 standard
+    localQuality.value = 'standard'
   }
 
-  // 同步 Size 到模型默认值
+  // 2. 同步 Size
   const newSizeOptions = getModelSizeOptions(key, localQuality.value)
   let defaultSize = config?.defaultParams?.size
 
   if (!defaultSize && newSizeOptions.length > 0) {
-    // 备用逻辑：查找 2048 或最接近的尺寸
+    // 备用逻辑：查找 2048 或 1x1 或最接近的尺寸
     defaultSize = newSizeOptions.find(o => o.key === '2048x2048')?.key
+      || newSizeOptions.find(o => o.key === '1x1')?.key
       || newSizeOptions.find(o => o.key.includes('1024'))?.key
       || newSizeOptions[0].key
   }
 
-  localSize.value = defaultSize
+  // 如果当前 size 不在新选项中，重置为默认值
+  const currentSizeValid = newSizeOptions.some(o => o.key === localSize.value)
+  localSize.value = currentSizeValid ? localSize.value : defaultSize
 
   // 更新节点数据
   updateNode(props.id, {
     model: key,
     quality: localQuality.value,
-    size: defaultSize
+    size: localSize.value
   })
 }
 
 // Handle quality selection | 处理画质选择
 const handleQualitySelect = (quality) => {
   localQuality.value = quality
-  // Update size to first option of new quality | 更新尺寸为新画质的第一个选项
+  // Update size options based on new quality | 根据新画质更新尺寸选项
   const newSizeOptions = getModelSizeOptions(localModel.value, quality)
   if (newSizeOptions.length > 0) {
-    const defaultSize = quality === '4k' ? newSizeOptions.find(o => o.key.includes('4096'))?.key || newSizeOptions[4]?.key : newSizeOptions[4]?.key
-    localSize.value = defaultSize || newSizeOptions[0].key
-    updateNode(props.id, { quality, size: localSize.value })
+    // 检查当前 size 是否在新选项中
+    const currentSizeValid = newSizeOptions.some(o => o.key === localSize.value)
+    if (currentSizeValid) {
+      updateNode(props.id, { quality })
+    } else {
+      // 当前 size 不在新画质的选项中，选择默认值
+      const config = getModelConfig(localModel.value)
+      let defaultSize = config?.defaultParams?.size
+      if (!defaultSize || !newSizeOptions.some(o => o.key === defaultSize)) {
+        defaultSize = quality === '4k'
+          ? newSizeOptions.find(o => o.key.includes('4096'))?.key || newSizeOptions[4]?.key
+          : newSizeOptions[4]?.key
+      }
+      localSize.value = defaultSize || newSizeOptions[0].key
+      updateNode(props.id, { quality, size: localSize.value })
+    }
   } else {
     updateNode(props.id, { quality })
   }
@@ -534,7 +583,7 @@ const createdImageNodeId = ref(null)
 const findConnectedOutputImageNode = (onlyEmpty = true) => {
   // Find edges where this node is the source | 查找以当前节点为源的边
   const outputEdges = edges.value.filter(e => e.source === props.id)
-  
+
   for (const edge of outputEdges) {
     const targetNode = nodes.value.find(n => n.id === edge.target)
     if (targetNode?.type === 'image') {
@@ -555,7 +604,7 @@ const findConnectedOutputImageNode = (onlyEmpty = true) => {
 // Check if there's a connected image node with content | 检查是否有已连接且有内容的图片节点
 const hasConnectedImageWithContent = computed(() => {
   const outputEdges = edges.value.filter(e => e.source === props.id)
-  
+
   for (const edge of outputEdges) {
     const targetNode = nodes.value.find(n => n.id === edge.target)
     if (targetNode?.type === 'image' && targetNode.data?.url && targetNode.data.url !== '') {
@@ -574,12 +623,12 @@ const handleGenerate = async (mode = 'auto') => {
     window.$message?.warning('请连接文本节点（提示词）或图片节点（参考图）')
     return
   }
-  
+
   // Log prompt order for debugging | 记录提示词顺序用于调试
   if (prompts.length > 1) {
     console.log('[ImageConfigNode] 拼接提示词顺序:', prompts.map(p => `${p.order}: ${p.content.substring(0, 20)}...`))
   }
-  
+
   // Log image order for debugging | 记录图片顺序用于调试
   if (refImagesWithOrder && refImagesWithOrder.length > 1) {
     console.log('[ImageConfigNode] 参考图顺序:', refImagesWithOrder.map(r => `${r.order}: ${r.nodeId}`))
@@ -591,7 +640,7 @@ const handleGenerate = async (mode = 'auto') => {
   }
 
   let imageNodeId = null
-  
+
   if (mode === 'replace') {
     // Replace mode: find any connected image node | 替换模式：查找任意连接的图片节点
     imageNodeId = findConnectedOutputImageNode(false)
@@ -608,13 +657,13 @@ const handleGenerate = async (mode = 'auto') => {
       updateNode(imageNodeId, { loading: true })
     }
   }
-  
+
   if (!imageNodeId) {
     // Get current node position | 获取当前节点位置
     const currentNode = nodes.value.find(n => n.id === props.id)
     const nodeX = currentNode?.position?.x || 0
     const nodeY = currentNode?.position?.y || 0
-    
+
     // Calculate Y offset if creating new node alongside existing | 如果是新建节点，计算Y偏移
     let yOffset = 0
     if (mode === 'new') {
@@ -637,7 +686,7 @@ const handleGenerate = async (mode = 'auto') => {
       targetHandle: 'left'
     })
   }
-  
+
   createdImageNodeId.value = imageNodeId
 
   // Force Vue Flow to recalculate node dimensions | 强制 Vue Flow 重新计算节点尺寸
@@ -652,7 +701,8 @@ const handleGenerate = async (mode = 'auto') => {
       prompt: prompt,
       size: localSize.value,
       quality: localQuality.value,
-      n: 1
+      n: 1,
+      watermark: false
     }
 
     // Add reference image if provided | 如果有参考图则添加
@@ -661,9 +711,9 @@ const handleGenerate = async (mode = 'auto') => {
     }
 
     const result = await generate(params)
-
+    console.log('[ImageConfigNode] 生成结果:', result)
     // Update image node with generated URL | 更新图片节点 URL
-    if (result && result.length > 0) {
+    if (result && result.length > 0 && result[0].url) {
       updateNode(imageNodeId, {
         url: result[0].url,
         loading: false,
@@ -671,12 +721,22 @@ const handleGenerate = async (mode = 'auto') => {
         model: localModel.value,
         updatedAt: Date.now()
       })
-      
+
       // Mark this config node as executed | 标记配置节点已执行
       updateNode(props.id, { executed: true, outputNodeId: imageNodeId })
+      window.$message?.success('图片生成成功')
+    } else {
+      // 生成成功但没有有效图片 URL
+      const errMsg = '生成结果中没有有效图片 URL'
+      updateNode(imageNodeId, {
+        loading: false,
+        error: errMsg,
+        updatedAt: Date.now()
+      })
+      window.$message?.error(errMsg)
     }
-    window.$message?.success('图片生成成功')
   } catch (err) {
+    console.error('[ImageConfigNode] 生成图片失败:', err)
     // Update node to show error | 更新节点显示错误
     updateNode(imageNodeId, {
       loading: false,
@@ -735,14 +795,26 @@ watch(() => props.data?.model, (newModel) => {
     const config = getModelConfig(newModel)
 
     // 同步 Quality
-    if (config?.defaultParams?.quality) {
-      localQuality.value = config.defaultParams.quality
+    const newQualityOptions = getModelQualityOptions(newModel)
+    if (newQualityOptions.length > 0) {
+      const defaultQuality = config?.defaultParams?.quality || newQualityOptions[0].key
+      const currentQualityValid = newQualityOptions.some(o => o.key === localQuality.value)
+      localQuality.value = currentQualityValid ? localQuality.value : defaultQuality
+    } else {
+      localQuality.value = 'standard'
     }
 
     // 同步 Size
-    if (config?.defaultParams?.size) {
-      localSize.value = config.defaultParams.size
+    const newSizeOptions = getModelSizeOptions(newModel, localQuality.value)
+    let defaultSize = config?.defaultParams?.size
+    if (!defaultSize && newSizeOptions.length > 0) {
+      defaultSize = newSizeOptions.find(o => o.key === '2048x2048')?.key
+        || newSizeOptions.find(o => o.key === '1x1')?.key
+        || newSizeOptions.find(o => o.key.includes('1024'))?.key
+        || newSizeOptions[0].key
     }
+    const currentSizeValid = newSizeOptions.some(o => o.key === localSize.value)
+    localSize.value = currentSizeValid ? localSize.value : defaultSize
   }
 })
 

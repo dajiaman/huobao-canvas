@@ -6,7 +6,7 @@
  * - macOS:   ~/Library/Logs/{appName}/main.log
  * - Linux:   ~/.config/{appName}/logs/main.log
  */
-import log from 'electron-log/main'
+import log from 'electron-log'
 import { is } from '@electron-toolkit/utils'
 
 // 开启后渲染进程可通过 electron-log/renderer 写入同一份日志

@@ -48,6 +48,61 @@ export const BANANA_SIZE_OPTIONS = [
 // Image generation models | 图片生成模型
 export const IMAGE_MODELS = [
   {
+    label: '豆包 Seedream 4.5',
+    key: 'doubao-seedream-4-5-251128',
+    provider: ['volcengine'], // 火山引擎
+    sizes: SEEDREAM_SIZE_OPTIONS.map((s) => s.key),
+    qualities: SEEDREAM_QUALITY_OPTIONS,
+    getSizesByQuality: (quality) =>
+      quality === '4k' ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
+    defaultParams: {
+      size: '2048x2048',
+      quality: 'standard',
+      style: 'vivid'
+    }
+  },
+  {
+    label: '豆包 Seedream 5.0 Lite',
+    key: 'doubao-seedream-5-0-260128',
+    provider: ['volcengine'], // 火山引擎
+    sizes: SEEDREAM_SIZE_OPTIONS.map((s) => s.key),
+    qualities: SEEDREAM_QUALITY_OPTIONS,
+    getSizesByQuality: (quality) =>
+      quality === '4k' ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
+    defaultParams: {
+      size: '2048x2048',
+      quality: 'standard',
+      style: 'vivid'
+    }
+  },
+
+  {
+    label: '豆包 Seedream 5.0 Pro',
+    key: 'doubao-seedream-5-0-pro-260628',
+    provider: ['volcengine'], // 火山引擎
+    sizes: SEEDREAM_SIZE_OPTIONS.map((s) => s.key),
+    qualities: SEEDREAM_QUALITY_OPTIONS,
+    getSizesByQuality: (quality) =>
+      quality === '4k' ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
+    defaultParams: {
+      size: '2048x2048',
+      quality: 'standard',
+      style: 'vivid'
+    }
+  },
+
+  {
+    label: 'Nano Banana',
+    key: 'nano-banana',
+    provider: ['volcengine'], // 火宝渠道
+    tips: '尺寸写在提示词中: 尺寸 9:16',
+    sizes: [],
+    defaultParams: {
+      quality: 'standard',
+      style: 'vivid'
+    }
+  },
+  {
     label: 'Nano Banana 2',
     key: 'nano-banana-2',
     provider: ['volcengine'], // 火宝渠道
@@ -69,61 +124,6 @@ export const IMAGE_MODELS = [
     // getSizesByQuality: (quality) => quality === '4k' ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
     defaultParams: {
       size: '1x1',
-      quality: 'standard',
-      style: 'vivid'
-    }
-  },
-  {
-    label: '豆包 Seedream 4.5',
-    key: 'doubao-seedream-4-5-251128',
-    provider: ['volcengine'], // 火山引擎
-    sizes: SEEDREAM_SIZE_OPTIONS.map((s) => s.key),
-    qualities: SEEDREAM_QUALITY_OPTIONS,
-    getSizesByQuality: (quality) =>
-      quality === '4k' ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
-    defaultParams: {
-      size: '2048x2048',
-      quality: 'standard',
-      style: 'vivid'
-    }
-  },
-  {
-    label: '豆包 Seedream 5.0 lite',
-    key: 'doubao-seedream-5-0-260128',
-    provider: ['volcengine'], // 火山引擎
-    sizes: SEEDREAM_SIZE_OPTIONS.map((s) => s.key),
-    qualities: SEEDREAM_QUALITY_OPTIONS,
-    getSizesByQuality: (quality) =>
-      quality === '4k' ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
-    defaultParams: {
-      size: '2048x2048',
-      quality: 'standard',
-      style: 'vivid'
-    }
-  },
-
-  {
-    label: '豆包 Seedream 5.0 pro',
-    key: 'doubao-seedream-5-0-pro-260628',
-    provider: ['volcengine'], // 火山引擎
-    sizes: SEEDREAM_SIZE_OPTIONS.map((s) => s.key),
-    qualities: SEEDREAM_QUALITY_OPTIONS,
-    getSizesByQuality: (quality) =>
-      quality === '4k' ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS,
-    defaultParams: {
-      size: '2048x2048',
-      quality: 'standard',
-      style: 'vivid'
-    }
-  },
-
-  {
-    label: 'Nano Banana',
-    key: 'nano-banana',
-    provider: ['volcengine'], // 火宝渠道
-    tips: '尺寸写在提示词中: 尺寸 9:16',
-    sizes: [],
-    defaultParams: {
       quality: 'standard',
       style: 'vivid'
     }
@@ -241,7 +241,7 @@ export const VIDEO_MODELS = [
   },
 
   {
-    label: '豆包 Seedance 2.0 fast (图文视频)',
+    label: '豆包 Seedance 2.0 Fast (图文视频)',
     key: 'doubao-seedance-2-0-fast-260128',
     provider: ['volcengine'],
     type: 't2v+i2v',
@@ -256,7 +256,7 @@ export const VIDEO_MODELS = [
   },
 
   {
-    label: '豆包 Seedance 2.0 mini (图文视频)',
+    label: '豆包 Seedance 2.0 Mini (图文视频)',
     key: 'doubao-seedance-2-0-mini-260615',
     provider: ['volcengine'],
     type: 't2v+i2v',
@@ -309,16 +309,18 @@ export const VIDEO_MODELS = [
 
 // Chat/LLM models | 对话模型
 export const CHAT_MODELS = [
-  { label: 'GPT-4o Mini', key: 'gpt-4o-mini', provider: ['openai'] },
-  { label: 'GPT-4o', key: 'gpt-4o', provider: ['openai'] },
-  { label: 'GPT-5.2', key: 'gpt-5.2', provider: ['openai'] },
   {
-    label: 'DeepSeek Chat',
-    key: 'deepseek-chat',
-    provider: ['openai', 'volcengine']
+    label: '豆包 Seed 2.1 Pro',
+    key: 'doubao-seed-2-1-pro-260628',
+    provider: ['volcengine']
   },
   {
-    label: 'Doubao Seed 2.0 Lite',
+    label: 'GLM 5.2 ',
+    key: 'glm-5-2-260617',
+    provider: ['volcengine']
+  },
+  {
+    label: '豆包 Seed 2.0 Lite',
     key: 'doubao-seed-2-0-lite-260428',
     provider: ['volcengine']
   },
@@ -326,6 +328,14 @@ export const CHAT_MODELS = [
     label: '豆包 Seed Flash',
     key: 'doubao-seed-1-6-flash-250615',
     provider: ['volcengine']
+  },
+  { label: 'GPT-4o Mini', key: 'gpt-4o-mini', provider: ['openai'] },
+  { label: 'GPT-4o', key: 'gpt-4o', provider: ['openai'] },
+  { label: 'GPT-5.2', key: 'gpt-5.2', provider: ['openai'] },
+  {
+    label: 'DeepSeek Chat',
+    key: 'deepseek-chat',
+    provider: ['openai', 'volcengine']
   },
   { label: 'Gemini 3 Pro', key: 'gemini-3-pro', provider: ['openai'] }
 ]
@@ -359,7 +369,7 @@ export const VIDEO_DURATION_OPTIONS = [
 ]
 
 // Default values | 默认值
-export const DEFAULT_IMAGE_MODEL = 'nano-banana-pro'
+export const DEFAULT_IMAGE_MODEL = 'doubao-seedream-4-5-251128'
 export const DEFAULT_VIDEO_MODEL = 'doubao-seedance-1-5-pro-251215'
 export const DEFAULT_CHAT_MODEL = 'doubao-seed-2-0-lite-260428'
 export const DEFAULT_IMAGE_SIZE = '2048x2048'

@@ -38,6 +38,8 @@ export const PROVIDERS = {
         if (params.quality) adapted.quality = params.quality
         if (params.style) adapted.style = params.style
         if (params.image) adapted.image = params.image
+        if (params.watermark !== undefined) adapted.watermark = params.watermark
+
         return adapted
       },
       video: (params) => {
@@ -155,11 +157,30 @@ export const PROVIDERS = {
         return ''
       },
       image: (response) => {
-        const data = response.data || response
-        return (Array.isArray(data) ? data : [data]).map((item) => ({
-          url: item.url || item.b64_json || '',
-          revisedPrompt: item.revised_prompt || ''
-        }))
+        // 支持多种响应格式：
+        // 1. { data: [{ url: '...' }] }  (标准 OpenAI 格式)
+        // 2. { data: { url: '...' } }     (单个对象)
+        // 3. [{ url: '...' }]              (直接数组)
+        // 4. { images: [{ url: '...' }] }  (images 字段)
+        // 5. { output: { url: '...' } }    (output 字段)
+        const data = response?.data || response?.images || response?.output || response
+
+        let items = []
+        if (Array.isArray(data)) {
+          items = data
+        } else if (data && typeof data === 'object') {
+          // 如果 data 是对象，尝试提取数组字段
+          if (Array.isArray(data.images)) items = data.images
+          else if (Array.isArray(data.results)) items = data.results
+          else if (Array.isArray(data.items)) items = data.items
+          else if (data.url || data.b64_json || data.image_url) items = [data]
+          else items = [data]
+        }
+
+        return items.map((item) => ({
+          url: item.url || item.b64_json || item.image_url || item.image || '',
+          revisedPrompt: item.revised_prompt || item.revisedPrompt || ''
+        })).filter(item => item.url)  // 过滤掉没有 url 的项
       },
       video: (response) => {
         return {
@@ -225,11 +246,23 @@ export const PROVIDERS = {
         return ''
       },
       image: (response) => {
-        const data = response.data || response
-        return (Array.isArray(data) ? data : [data]).map((item) => ({
-          url: item.url || item.b64_json || '',
-          revisedPrompt: item.revised_prompt || ''
-        }))
+        const data = response?.data || response?.images || response?.output || response
+
+        let items = []
+        if (Array.isArray(data)) {
+          items = data
+        } else if (data && typeof data === 'object') {
+          if (Array.isArray(data.images)) items = data.images
+          else if (Array.isArray(data.results)) items = data.results
+          else if (Array.isArray(data.items)) items = data.items
+          else if (data.url || data.b64_json || data.image_url) items = [data]
+          else items = [data]
+        }
+
+        return items.map((item) => ({
+          url: item.url || item.b64_json || item.image_url || item.image || '',
+          revisedPrompt: item.revised_prompt || item.revisedPrompt || ''
+        })).filter(item => item.url)
       },
       video: (response) => {
         return {

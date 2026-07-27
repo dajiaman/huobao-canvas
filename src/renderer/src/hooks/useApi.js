@@ -174,6 +174,7 @@ export const useImageGeneration = () => {
         model: params.model,
         prompt: params.prompt,
         size: params.size || modelConfig?.defaultParams?.size || '2048x2048',
+        watermark: false,
         // n: params.n || 1
       }
 
@@ -194,11 +195,20 @@ export const useImageGeneration = () => {
       // 适配响应数据
       const adaptedData = adaptResponse('image', response)
 
-      images.value = adaptedData
-      currentImage.value = adaptedData[0] || null
+      // 校验结果是否包含有效图片
+      const validImages = adaptedData.filter(img => img && img.url)
+      if (validImages.length === 0) {
+        const err = new Error('生成结果中没有有效图片 URL')
+        setError(err)
+        throw err
+      }
+
+      images.value = validImages
+      currentImage.value = validImages[0] || null
       setSuccess()
-      return adaptedData
+      return validImages
     } catch (err) {
+      console.error('[useImageGeneration] 生成图片失败:', err)
       setError(err)
       throw err
     }
@@ -222,7 +232,7 @@ export const useVideoGeneration = () => {
   const progress = reactive({
     attempt: 0,
     maxAttempts: 120,
-    percentage: 0
+    percentage: 0,
   })
 
   /**
@@ -234,7 +244,8 @@ export const useVideoGeneration = () => {
     // Build request data | 构建请求数据
     const requestData = {
       model: params.model,
-      prompt: params.prompt || ''
+      prompt: params.prompt || '',
+      watermark: false,
     }
     // Add optional params | 添加可选参数
     if (params.first_frame_image) requestData.first_frame_image = params.first_frame_image

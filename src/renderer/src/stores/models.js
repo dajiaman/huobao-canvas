@@ -67,20 +67,28 @@ export const getModelConfig = (modelKey) => {
  * Returns options based on model's sizes array and quality
  */
 export const getModelSizeOptions = (modelKey, quality = 'standard') => {
-  const model = IMAGE_MODELS.find(m => m.key === modelKey)
+  const model = getModelConfig(modelKey)
   
+  if (!model) return SEEDREAM_SIZE_OPTIONS
+
   // If model has getSizesByQuality function, use it | 如果模型有 getSizesByQuality 函数，使用它
-  if (model?.getSizesByQuality) {
+  if (typeof model.getSizesByQuality === 'function') {
     return model.getSizesByQuality(quality)
   }
-  
-  if (!model?.sizes) return SEEDREAM_SIZE_OPTIONS
-  
+
+  if (!model.sizes || model.sizes.length === 0) return []
+
   // Convert sizes array to dropdown options | 转换 sizes 数组为下拉选项
-  const sizeOptions = quality === '4k' ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS
+  // 优先从已知尺寸选项库中查找匹配的 label
+  const knownSizeOptions = quality === '4k' ? SEEDREAM_4K_SIZE_OPTIONS : SEEDREAM_SIZE_OPTIONS
   return model.sizes.map(size => {
-    const option = sizeOptions.find(o => o.key === size)
-    return option || { label: size, key: size }
+    const option = knownSizeOptions.find(o => o.key === size)
+    if (option) return option
+    // 如果是比例格式（如 1x1），转换为 1:1 显示
+    if (/^\d+x\d+$/.test(size)) {
+      return { label: size.replace('x', ':'), key: size }
+    }
+    return { label: size, key: size }
   })
 }
 
@@ -88,7 +96,7 @@ export const getModelSizeOptions = (modelKey, quality = 'standard') => {
  * Get quality options for image model | 获取图片模型画质选项
  */
 export const getModelQualityOptions = (modelKey) => {
-  const model = IMAGE_MODELS.find(m => m.key === modelKey)
+  const model = getModelConfig(modelKey)
   return model?.qualities || []
 }
 

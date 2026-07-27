@@ -1,33 +1,27 @@
 <template>
   <!-- Video config node wrapper | 视频配置节点包裹层 -->
-  <div class="video-config-node-wrapper relative" @mouseenter="showHandleMenu = true" @mouseleave="showHandleMenu = false">
+  <div class="video-config-node-wrapper relative" @mouseenter="showHandleMenu = true"
+    @mouseleave="showHandleMenu = false">
     <!-- Video config node | 视频配置节点 -->
     <div class="video-config-node bg-[var(--bg-secondary)] rounded-xl border min-w-[300px] transition-all duration-200"
       :class="data.selected ? 'border-1 border-blue-500 shadow-lg shadow-blue-500/20' : 'border border-[var(--border-color)]'">
       <!-- Header | 头部 -->
       <div class="flex items-center justify-between px-3 py-2 border-b border-[var(--border-color)]">
-        <span
-          v-if="!isEditingLabel"
-          @dblclick="startEditLabel"
+        <span v-if="!isEditingLabel" @dblclick="startEditLabel"
           class="text-sm font-medium text-[var(--text-secondary)] cursor-text hover:bg-[var(--bg-tertiary)] px-1 rounded transition-colors"
-          title="双击编辑名称"
-        >{{ data.label || '视频生成' }}</span>
-        <input
-          v-else
-          ref="labelInputRef"
-          v-model="editingLabelValue"
-          @blur="finishEditLabel"
-          @keydown.enter="finishEditLabel"
-          @keydown.escape="cancelEditLabel"
-          class="text-sm font-medium bg-[var(--bg-tertiary)] text-[var(--text-secondary)] px-1 rounded outline-none border border-blue-500"
-        />
+          title="双击编辑名称">{{ data.label || '视频生成' }}</span>
+        <input v-else ref="labelInputRef" v-model="editingLabelValue" @blur="finishEditLabel"
+          @keydown.enter="finishEditLabel" @keydown.escape="cancelEditLabel"
+          class="text-sm font-medium bg-[var(--bg-tertiary)] text-[var(--text-secondary)] px-1 rounded outline-none border border-blue-500" />
         <div class="flex items-center gap-1">
-          <button @click="handleDuplicate" class="p-1 hover:bg-[var(--bg-tertiary)] rounded transition-colors" title="复制节点">
+          <button @click="handleDuplicate" class="p-1 hover:bg-[var(--bg-tertiary)] rounded transition-colors"
+            title="复制节点">
             <n-icon :size="14">
               <CopyOutline />
             </n-icon>
           </button>
-          <button @click="handleDelete" class="p-1 hover:bg-[var(--bg-tertiary)] rounded transition-colors" title="删除节点">
+          <button @click="handleDelete" class="p-1 hover:bg-[var(--bg-tertiary)] rounded transition-colors"
+            title="删除节点">
             <n-icon :size="14">
               <TrashOutline />
             </n-icon>
@@ -43,7 +37,9 @@
           <n-dropdown :options="modelOptions" @select="handleModelSelect">
             <button class="flex items-center gap-1 text-sm text-[var(--text-primary)] hover:text-[var(--accent-color)]">
               {{ displayModelName }}
-              <n-icon :size="12"><ChevronDownOutline /></n-icon>
+              <n-icon :size="12">
+                <ChevronDownOutline />
+              </n-icon>
             </button>
           </n-dropdown>
         </div>
@@ -377,7 +373,8 @@ const handleGenerate = async () => {
     // Build request params (raw form data) | 构建请求参数（原始表单数据）
     // These will be transformed by inputTransform | 这些会被 inputTransform 转换
     const params = {
-      model: localModel.value
+      model: localModel.value,
+      watermark: false
     }
 
     // Add prompt if provided | 如果有提示词则添加
