@@ -1,7 +1,6 @@
 "use strict";
 const electron = require("electron");
 const path = require("path");
-require("url");
 const log = require("electron-log");
 const utils = require("@electron-toolkit/utils");
 log.initialize();
@@ -129,6 +128,18 @@ function registerHttpHandlers() {
 }
 const icon = path.join(__dirname, "../../resources/icon.png");
 let mainWindow = null;
+const gotTheLock = electron.app.requestSingleInstanceLock();
+if (!gotTheLock) {
+  electron.app.quit();
+} else {
+  electron.app.on("second-instance", () => {
+    if (mainWindow) {
+      if (mainWindow.isMinimized()) mainWindow.restore();
+      mainWindow.focus();
+      mainWindow.show();
+    }
+  });
+}
 function createWindow() {
   mainWindow = new electron.BrowserWindow({
     width: 1440,
