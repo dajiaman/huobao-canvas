@@ -60,13 +60,21 @@ export const request = async (config = {}) => {
     `[request] request before: ${method.toUpperCase()} ${finalUrl} -> ${JSON.stringify(data)} -> ${JSON.stringify(params)}`
   )
 
-  const res = await window.api.httpRequest({
-    method,
-    url: finalUrl,
-    headers: finalHeaders,
-    data,
-    params
-  })
+  let res
+  try {
+    res = await window.api.httpRequest({
+      method,
+      url: finalUrl,
+      headers: finalHeaders,
+      data,
+      params
+    })
+  } catch (err) {
+    const msg = err.message || '网络请求错误'
+    console.error(`[request] IPC error: ${msg}`)
+    window.$message?.error(msg)
+    return Promise.reject(err)
+  }
 
   console.log(`[request] result: ${method.toUpperCase()} ${finalUrl} -> ${res.status}`, res.data)
   // 成功
