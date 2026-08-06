@@ -75,7 +75,7 @@ export const useChat = (options = {}) => {
         // 多模态消息：文本 + 图片
         userContent = [
           { type: 'text', text: content },
-          ...images.map(img => ({
+          ...images.map((img) => ({
             type: 'image_url',
             image_url: { url: img.url || img }
           }))
@@ -105,11 +105,10 @@ export const useChat = (options = {}) => {
         const chatUrl = modelStore.getChatEndpoint()
         const endpoint = new URL(chatUrl).pathname
 
-        for await (const chunk of streamChatCompletions(
-          adaptedParams,
-          abortController.signal,
-          { baseUrl: new URL(chatUrl).origin, endpoint }
-        )) {
+        for await (const chunk of streamChatCompletions(adaptedParams, abortController.signal, {
+          baseUrl: new URL(chatUrl).origin,
+          endpoint
+        })) {
           fullResponse += chunk
           currentResponse.value = fullResponse
         }
@@ -174,7 +173,7 @@ export const useImageGeneration = () => {
         model: params.model,
         prompt: params.prompt,
         size: params.size || modelConfig?.defaultParams?.size || '2048x2048',
-        watermark: false,
+        watermark: false
         // n: params.n || 1
       }
 
@@ -196,17 +195,31 @@ export const useImageGeneration = () => {
       const adaptedData = adaptResponse('image', response)
 
       // 校验结果是否包含有效图片
-      const validImages = adaptedData.filter(img => img && img.url)
+      const validImages = adaptedData.filter((img) => img && img.url)
       if (validImages.length === 0) {
         const err = new Error('生成结果中没有有效图片 URL')
         setError(err)
         throw err
       }
 
-      images.value = validImages
-      currentImage.value = validImages[0] || null
+      // 缓存图片到本地，避免临时 URL 过期 | Cache images locally
+      const cachedImages = await Promise.all(
+        validImages.map(async (img) => {
+          try {
+            const cachedUrl = await window.api.cacheImage(img.url)
+            // 确保缓存返回了有效 URL，否则使用原始 URL
+            return { ...img, url: cachedUrl || img.url }
+          } catch (e) {
+            console.warn('[useImageGeneration] 缓存图片失败，使用原始 URL:', e.message)
+            return img
+          }
+        })
+      )
+
+      images.value = cachedImages
+      currentImage.value = cachedImages[0] || null
       setSuccess()
-      return validImages
+      return cachedImages
     } catch (err) {
       console.error('[useImageGeneration] 生成图片失败:', err)
       setError(err)
@@ -232,7 +245,7 @@ export const useVideoGeneration = () => {
   const progress = reactive({
     attempt: 0,
     maxAttempts: 120,
-    percentage: 0,
+    percentage: 0
   })
 
   /**
@@ -245,7 +258,7 @@ export const useVideoGeneration = () => {
     const requestData = {
       model: params.model,
       prompt: params.prompt || '',
-      watermark: false,
+      watermark: false
     }
     // Add optional params | 添加可选参数
     if (params.first_frame_image) requestData.first_frame_image = params.first_frame_image
@@ -307,8 +320,14 @@ export const useVideoGeneration = () => {
 
       // Check for completion | 检查是否完成
       if (result.status === 'completed' || result.status === 'succeeded' || result.data) {
-        const videoUrl = adaptedResult.url || result.data?.url || result.data?.[0]?.url || result.url || result.content?.video_url || result.video_url
-        return { ...adaptedResult, url: videoUrl,  }
+        const videoUrl =
+          adaptedResult.url ||
+          result.data?.url ||
+          result.data?.[0]?.url ||
+          result.url ||
+          result.content?.video_url ||
+          result.video_url
+        return { ...adaptedResult, url: videoUrl }
       }
 
       // Check for failure | 检查是否失败
@@ -317,7 +336,7 @@ export const useVideoGeneration = () => {
       }
 
       // Wait before next poll | 等待下次轮询
-      await new Promise(resolve => setTimeout(resolve, interval))
+      await new Promise((resolve) => setTimeout(resolve, interval))
     }
 
     throw new Error('视频生成超时')
@@ -364,7 +383,18 @@ export const useVideoGeneration = () => {
     }
   }
 
-  return { loading, error, status, video, taskId, progress, generate, reset, createVideoTaskOnly, pollVideoTask }
+  return {
+    loading,
+    error,
+    status,
+    video,
+    taskId,
+    progress,
+    generate,
+    reset,
+    createVideoTaskOnly,
+    pollVideoTask
+  }
 }
 
 /**

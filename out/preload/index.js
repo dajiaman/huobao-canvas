@@ -34,7 +34,13 @@ const api = {
   /** 设置主题 | Set theme
    * @param {'light' | 'dark'} theme
    */
-  setTheme: (theme) => electron.ipcRenderer.send("set-theme", theme)
+  setTheme: (theme) => electron.ipcRenderer.send("set-theme", theme),
+  /**
+   * 缓存远程图片到本地 | Cache remote image to local
+   * @param {string} imageUrl - 远程图片 URL
+   * @returns {Promise<string>} cache://images/xxx.png 格式的本地 URL
+   */
+  cacheImage: (imageUrl) => electron.ipcRenderer.invoke("image:cache", imageUrl)
 };
 if (process.contextIsolated) {
   try {

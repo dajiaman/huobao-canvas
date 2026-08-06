@@ -7,6 +7,7 @@ import { registerHttpHandlers } from './http.js'
 import { optimizer, is } from '@electron-toolkit/utils'
 import log from './logger.js'
 import icon from '../../resources/icon.png?asset'
+import { initImageCache } from './image-cache.js'
 
 let mainWindow = null
 
@@ -39,6 +40,7 @@ function createWindow() {
       preload: path.join(__dirname, '../preload/index.js'),
       sandbox: false,
       contextIsolation: true,
+      webSecurity: false,
       nodeIntegration: false
     }
   })
@@ -82,6 +84,9 @@ app.whenReady().then(() => {
     `[app] ready, version=${app.getVersion()}, log dir=${log.transports.file.getFile().path}`
   )
   registerHttpHandlers()
+
+  // 初始化图片缓存
+  initImageCache()
 
   app.on('browser-window-created', (_, window) => {
     optimizer.watchWindowShortcuts(window)

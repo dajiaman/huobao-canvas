@@ -719,7 +719,8 @@ const handleGenerate = async (mode = 'auto') => {
         loading: false,
         label: '文生图',
         model: localModel.value,
-        updatedAt: Date.now()
+        updatedAt: Date.now(),
+        error: false
       })
 
       // Mark this config node as executed | 标记配置节点已执行

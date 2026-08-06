@@ -1,6 +1,7 @@
 {
   appId: 'com.infinite-canvas.app',
   productName: '火宝无限画布',
+  asar: false,
   directories: {
     buildResources: 'build'
   },
